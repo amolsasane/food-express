@@ -21,7 +21,7 @@ function Header() {
             <li className="p-2 font-bold text-lg ">
               <Link to="/">Home</Link>
             </li>
-            <li className="p-2 font-bold text-lg ">
+            {/* <li className="p-2 font-bold text-lg ">
               <Link to="/about">About</Link>
             </li>
             <li className="p-2 font-bold text-lg ">
@@ -29,7 +29,7 @@ function Header() {
             </li>
             <li className="p-2 font-bold text-lg text-green-600 ">
               <Link to="/grocery">Grocery</Link>
-            </li>
+            </li> */}
             <li className="p-2 font-bold text-lg ">
               <Link to="/cart">Cart {cartItem.length}</Link>
             </li>
