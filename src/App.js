@@ -8,22 +8,20 @@ import Cart from "./components/Cart.js";
 import Error from "./components/Error.js";
 import ResMenu from "./components/ResMenu.js";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import UserContext from "./utils/UserContext.js";
+import { UserProvider } from "./utils/UserContext.js";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore.js";
 
 const Grocery = lazy(() => import("./components/Grocery.js"));
 
 function MyApp() {
-  const [userName, setUserName] = useState("Guest User");
-
   return (
     <div className="my-app">
       <Provider store={appStore}>
-        <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <UserProvider>
           <Header />
           <Outlet />
-        </UserContext.Provider>
+        </UserProvider>
       </Provider>
     </div>
   );
