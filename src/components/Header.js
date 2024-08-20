@@ -37,37 +37,49 @@ function Header() {
             <li className="p-2 mx-6 font-bold text-md text-orange-600">
               <Link to="/">
                 <FontAwesomeIcon icon={faHouse} />
-                <span className="pl-2 text-gray-600">Home</span>
+                <span className="pl-2 text-gray-600 hover:text-orange-600">
+                  Home
+                </span>
               </Link>
             </li>
             <li className="p-2 mx-6 font-bold text-md text-orange-600">
               <Link to="/">
                 <FontAwesomeIcon icon={faStar} />
-                <span className="pl-2 text-gray-600">Offers</span>
+                <span className="pl-2 text-gray-600 hover:text-orange-600">
+                  Offers
+                </span>
               </Link>
             </li>
             <li className="p-2 mx-6 font-bold text-md text-orange-600">
               <Link to="/contact">
                 <FontAwesomeIcon icon={faHeadphones} />
-                <span className="pl-2 text-gray-600">Contact</span>
+                <span className="pl-2 text-gray-600 hover:text-orange-600">
+                  Contact
+                </span>
               </Link>
             </li>
             <li className="p-2 mx-6 font-bold text-md text-orange-600">
               <Link to="/">
                 <FontAwesomeIcon icon={faCarrot} />
-                <span className="pl-2 text-gray-600">Grocery</span>
+                <span className="pl-2 text-gray-600 hover:text-orange-600">
+                  Grocery
+                </span>
               </Link>
             </li>
             <li className="p-2 mx-6 font-bold text-md text-orange-600">
               <Link to="/cart">
                 <FontAwesomeIcon icon={faCartShopping} />
-                <span className="pl-2 text-gray-600">Cart</span>
+                <span className="pl-2 text-gray-600 hover:text-orange-600">
+                  Cart
+                </span>
               </Link>
             </li>
             <div className="relative group flex flex-col mt-2">
               <button className="mx-6 font-bold text-md text-orange-600">
                 <FontAwesomeIcon icon={faUser} />
-                <span className="pl-2 text-gray-600">{loggedInUser}</span>
+                <span className="pl-2 text-gray-600 hover:text-orange-600">
+                  {loggedInUser}
+                </span>
               </button>
               <div className="login-btn text-center font-bold text-md text-white bg-orange-600 rounded-b-lg py-2 px-6 absolute mt-7 mx-3 shadow-lg opacity-0 transform translate-y-[-20px] group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-in-out bg-gradient-to-b from-white via-orange-600/50 to-orange-600">
                 <button onClick={loginBtnAction} className="text-white">
