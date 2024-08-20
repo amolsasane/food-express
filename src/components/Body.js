@@ -58,7 +58,9 @@ function Body() {
     setRestaurantsList(topRatedRes);
   };
 
-  const searchedRestaurentBtn = () => {
+  const searchedRestaurentBtn = (event) => {
+    event.preventDefault();
+
     const filteredRestaurent = restaurantsList.filter(
       (res) =>
         res.info.name.toLowerCase().includes(searchInput.toLowerCase()) ||
@@ -244,6 +246,7 @@ function Body() {
         </div>
 
         <div className="h-[2px] mt-8 bg-gray-200"></div>
+
         <div className="flex max-w-[60rem] mt-6 mb-10 mx-auto justify-between items-center">
           <div className="btn-container m-4">
             <button
@@ -254,7 +257,7 @@ function Body() {
             </button>
           </div>
 
-          <div className="m-4">
+          <form className="m-4" onSubmit={searchedRestaurentBtn}>
             <input
               data-testId="searchInput"
               className="bg-gray-100 border-gray-300 p-[4px] border-2 rounded-tl-full rounded-bl-full"
@@ -264,11 +267,11 @@ function Body() {
             />
             <button
               className="bg-blue-100 p-[5px] pr-[1rem] pl-[1rem] rounded-tr-full rounded-br-full ml-2"
-              onClick={searchedRestaurentBtn}
+              type="submit"
             >
               Search
             </button>
-          </div>
+          </form>
         </div>
 
         {errorMessage && (
@@ -285,7 +288,7 @@ function Body() {
               to={`/restaurant/${restaurant.info.id}`}
               key={restaurant.info.id}
             >
-              {restaurant.info.aggregatedDiscountInfo ? (
+              {restaurant.info.avgRating > 4.2 ? (
                 <FreeDelivery resData={restaurant} label={"Free Delivery"} />
               ) : (
                 <ResCard resData={restaurant} />
