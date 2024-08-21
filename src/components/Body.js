@@ -6,7 +6,11 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus.js";
 import Login from "./Login.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowRight,
+  faArrowLeft,
+  faMagnifyingGlass,
+} from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { hideLogin } from "../utils/loginSlice.js";
 import {
@@ -28,7 +32,8 @@ function Body() {
   const [searchedRestaurents, setSearchedRestaurents] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [heading, setHeading] = useState(""); // State to store the heading text
+  const [heading, setHeading] = useState("");
+  const [showVeg, setShowVeg] = useState(false);
 
   const showLoginPage = useSelector((store) => store.login.login);
   const dispatch = useDispatch();
@@ -51,11 +56,40 @@ function Body() {
   const onlineStatus = useOnlineStatus();
   if (onlineStatus === false) return <h1>Oh.. You are offline!</h1>;
 
-  const topRatedRestaurantBtn = () => {
+  const toggleVeg = () => {
+    const vegRestaurants = showVeg
+      ? restaurantsList
+      : restaurantsList.filter((res) => res.info.veg === true);
+
+    setSearchedRestaurents(vegRestaurants);
+    setShowVeg(!showVeg);
+
+    if (vegRestaurants.length === 0) {
+      setErrorMessage("No vegetarian restaurants found!");
+    } else {
+      setErrorMessage("");
+    }
+  };
+
+  const filterTopRated = () => {
     const topRatedRes = restaurantsList.filter(
       (res) => res.info.avgRating > 4.2
     );
-    setRestaurantsList(topRatedRes);
+    setSearchedRestaurents(topRatedRes);
+  };
+
+  const filterFastDelivery = () => {
+    const topRatedRes = restaurantsList.filter(
+      (res) => res.info.avgRating > 4.5
+    );
+    setSearchedRestaurents(topRatedRes);
+  };
+
+  const filterLessCost = () => {
+    const topRatedRes = restaurantsList.filter(
+      (res) => res.info.avgRating > 4.6
+    );
+    setSearchedRestaurents(topRatedRes);
   };
 
   const searchedRestaurentBtn = (event) => {
@@ -133,10 +167,10 @@ function Body() {
 
     if (filteredRestaurent.length === 0) {
       setErrorMessage(`No matching restaurants found for ${altText}!`);
-      setHeading(""); // Clear heading if no results found
+      setHeading("");
     } else {
       setErrorMessage("");
-      setHeading(altText); // Set heading to altText when results are found
+      setHeading(altText);
     }
 
     setSearchedRestaurents(filteredRestaurent);
@@ -247,29 +281,57 @@ function Body() {
 
         <div className="h-[2px] mt-8 bg-gray-200"></div>
 
-        <div className="flex max-w-[60rem] mt-6 mb-10 mx-auto justify-between items-center">
-          <div className="btn-container m-4">
+        <div className="flex max-w-full mt-6 mb-10 mx-6 justify-between items-center">
+          <div className="btn-container">
+            <button className="toggle-button">
+              <input
+                type="checkbox"
+                name="check-toggle"
+                id="checkbox"
+                className="hidden"
+                onClick={toggleVeg}
+              />
+              <label for="checkbox" className="toggle">
+                <div className="toggle__circle"></div>
+                <div className="toggle__label font-bold">Veg</div>
+              </label>
+            </button>
+
             <button
-              className="bg-green-100 p-2 rounded-lg font-bold"
-              onClick={topRatedRestaurantBtn}
+              className="py-2 px-4 mx-4 hover:bg-orange-500 hover:text-white rounded-full bg-gray-200 font-bold my-2 border-gray-400 border shadow-md shadow-gray-500 text-gray-500"
+              onClick={filterTopRated}
             >
-              Top Rated Restaurents
+              Top Rated
+            </button>
+
+            <button
+              className=" py-2 px-4 mx-4 hover:bg-orange-500 hover:text-white rounded-full bg-gray-200 font-bold m-2 border-gray-400 border shadow-md shadow-gray-500 text-gray-500"
+              onClick={filterFastDelivery}
+            >
+              Fast Delivery
+            </button>
+            <button
+              className=" py-2 px-4 mx-4 hover:bg-orange-500 hover:text-white rounded-full bg-gray-200 font-bold m-2 border-gray-400 border shadow-md shadow-gray-500 text-gray-500"
+              onClick={filterLessCost}
+            >
+              Less than 200/-
             </button>
           </div>
 
-          <form className="m-4" onSubmit={searchedRestaurentBtn}>
+          <form className="mt-4" onSubmit={searchedRestaurentBtn}>
             <input
               data-testId="searchInput"
-              className="bg-gray-100 border-gray-300 p-[4px] border-2 rounded-tl-full rounded-bl-full"
+              placeholder="Type here.."
+              className="bg-gray-100 border-gray-300 py-[6px] px-[1rem] border-2 rounded-tl-full rounded-bl-full"
               type="text"
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
             />
             <button
-              className="bg-blue-100 p-[5px] pr-[1rem] pl-[1rem] rounded-tr-full rounded-br-full ml-2"
+              className="bg-zinc-500 hover:bg-orange-500 text-md p-[6px] pr-[1rem] pl-[1rem] rounded-tr-full rounded-br-full ml-2 text-white"
               type="submit"
             >
-              Search
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
             </button>
           </form>
         </div>
@@ -282,7 +344,7 @@ function Body() {
 
         {heading && <h2 className="text-3xl font-bold mb-4 ml-6">{heading}</h2>}
 
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap justify-center">
           {searchedRestaurents.map((restaurant) => (
             <Link
               to={`/restaurant/${restaurant.info.id}`}
