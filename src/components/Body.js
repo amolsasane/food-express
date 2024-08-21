@@ -10,6 +10,7 @@ import {
   faArrowRight,
   faArrowLeft,
   faMagnifyingGlass,
+  faChevronLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { hideLogin } from "../utils/loginSlice.js";
@@ -337,12 +338,16 @@ function Body() {
         </div>
 
         {errorMessage && (
-          <div className="error-message text-red-500 text-center mb-4 text-3xl font-bold">
+          <div className="error-message text-red-500 text-center mt-[5rem] text-3xl font-bold">
             {errorMessage}
           </div>
         )}
 
-        {heading && <h2 className="text-3xl font-bold mb-4 ml-6">{heading}</h2>}
+        {heading && (
+          <h2 className="text-3xl font-bold mb-6 ml-6">
+            Restaurants for {heading}
+          </h2>
+        )}
 
         <div className="flex flex-wrap justify-center">
           {searchedRestaurents.map((restaurant) => (
@@ -361,16 +366,24 @@ function Body() {
       </div>
 
       {isVisible && (
-        <div
-          className={`fixed inset-0 flex items-center justify-center z-50 transition-opacity duration-500 ${
-            showLoginPage ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          <div className="absolute inset-0 bg-black opacity-50"></div>
-          <div className="relative">
-            <Login close={closeLoginPage} />
+        <>
+          <div className="fixed inset-0 bg-black opacity-50 z-10"></div>
+          <div
+            className={`login-page fixed z-10 border border-gray-500 shadow-2xl bg-white w-[40vw] right-0 top-0 h-[100vh] rounded-l-xl transition-transform ${
+              showLoginPage ? "animate-slideInRight" : "animate-slideOutRight"
+            }`}
+          >
+            <div className="my-[5rem] mx-[5rem]">
+              <button
+                className="text-3xl text-gray-300 hover:text-orange-600"
+                onClick={closeLoginPage}
+              >
+                <FontAwesomeIcon icon={faChevronLeft} />
+              </button>
+              <Login />
+            </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   );
