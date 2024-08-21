@@ -344,7 +344,7 @@ function Body() {
         )}
 
         {heading && (
-          <h2 className="text-3xl font-bold mb-6 ml-6">
+          <h2 className="text-2xl font-bold mb-6 ml-6">
             Restaurants for {heading}
           </h2>
         )}
