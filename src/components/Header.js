@@ -10,7 +10,8 @@ import {
   faCartShopping,
   faHeadphones,
   faHouse,
-  faStar,
+  faGift,
+  faSeedling,
 } from "@fortawesome/free-solid-svg-icons";
 import { showLogin, turnToLogin } from "../utils/loginSlice";
 
@@ -44,7 +45,7 @@ function Header() {
             </li>
             <li className="p-2 mx-6 font-bold text-md text-orange-600">
               <Link to="/">
-                <FontAwesomeIcon icon={faStar} />
+                <FontAwesomeIcon icon={faGift} />
                 <span className="pl-2 text-gray-600 hover:text-orange-600">
                   Offers
                 </span>
@@ -60,7 +61,7 @@ function Header() {
             </li>
             <li className="p-2 mx-6 font-bold text-md text-orange-600">
               <Link to="/">
-                <FontAwesomeIcon icon={faCarrot} />
+                <FontAwesomeIcon icon={faSeedling} />
                 <span className="pl-2 text-gray-600 hover:text-orange-600">
                   Grocery
                 </span>
