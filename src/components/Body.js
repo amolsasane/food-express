@@ -27,6 +27,7 @@ import {
   BIRYANI_LINK,
   ICECREAM_LINK,
 } from "../utils/constants";
+import Footer from "./Footer.js";
 
 function Body() {
   const [restaurantsList, setRestaurantsList] = useState([]);
@@ -193,207 +194,212 @@ function Body() {
       <Shimmer />
     </div>
   ) : (
-    <div className="main max-w-[70rem] m-auto flex">
-      <div>
-        <div className="carousel">
-          <div className="flex justify-between">
-            <h1 className="font-bold text-2xl mt-4">What's on your mind?</h1>
-            <div className="mt-6 text-2xl">
-              <button
-                className="px-3 bg-gray-200 rounded-full mx-2 hover:bg-orange-200 text-gray-600 hover:text-orange-600"
-                onClick={handleScrollLeft}
-              >
-                <FontAwesomeIcon icon={faArrowLeft} />
-              </button>
-              <button
-                className="px-3 bg-gray-200 rounded-full mx-2 hover:bg-orange-200 text-gray-600 hover:text-orange-600"
-                onClick={handleScrollRight}
-              >
-                <FontAwesomeIcon icon={faArrowRight} />
-              </button>
+    <div>
+      <div className="main max-w-[70rem] m-auto flex pb-20">
+        <div>
+          <div className="carousel">
+            <div className="flex justify-between">
+              <h1 className="font-bold text-2xl mt-4">What's on your mind?</h1>
+              <div className="mt-6 text-2xl">
+                <button
+                  className="px-3 bg-gray-200 rounded-full mx-2 hover:bg-orange-200 text-gray-600 hover:text-orange-600"
+                  onClick={handleScrollLeft}
+                >
+                  <FontAwesomeIcon icon={faArrowLeft} />
+                </button>
+                <button
+                  className="px-3 bg-gray-200 rounded-full mx-2 hover:bg-orange-200 text-gray-600 hover:text-orange-600"
+                  onClick={handleScrollRight}
+                >
+                  <FontAwesomeIcon icon={faArrowRight} />
+                </button>
+              </div>
+            </div>
+            <div
+              className="flex overflow-x-scroll scrollbar-hide"
+              style={{ width: "100%" }}
+              ref={carouselRef}
+            >
+              <div className="flex" style={{ minWidth: "150%" }}>
+                <img
+                  className="w-[10rem] mx-4 cursor-pointer"
+                  src={ICECREAM_LINK}
+                  alt="Ice Cream"
+                  onClick={() => handleImageClick("Ice Cream")}
+                />
+                <img
+                  className="w-[10rem] mx-4 cursor-pointer"
+                  src={CAKE_LINK}
+                  alt="Cake"
+                  onClick={() => handleImageClick("Cake")}
+                />
+                <img
+                  className="w-[10rem] mx-4 cursor-pointer"
+                  src={ROLLS_LINK}
+                  alt="Rolls"
+                  onClick={() => handleImageClick("Rolls")}
+                />
+                <img
+                  className="w-[10rem] mx-4 cursor-pointer"
+                  src={PIZZA_LINK}
+                  alt="Pizza"
+                  onClick={() => handleImageClick("Pizza")}
+                />
+                <img
+                  className="w-[10rem] mx-4 cursor-pointer"
+                  src={NOODLES_LINK}
+                  alt="Chinese"
+                  onClick={() => handleImageClick("Chinese")}
+                />
+                <img
+                  className="w-[10rem] mx-4 cursor-pointer"
+                  src={BIRYANI_LINK}
+                  alt="Biryani"
+                  onClick={() => handleImageClick("Biryani")}
+                />
+                <img
+                  className="w-[10rem] mx-4 cursor-pointer"
+                  src={TEA_LINK}
+                  alt="Tea"
+                  onClick={() => handleImageClick("Tea")}
+                />
+                <img
+                  className="w-[10rem] mx-4 cursor-pointer"
+                  src={COFFEE_LINK}
+                  alt="Coffee"
+                  onClick={() => handleImageClick("Coffee")}
+                />
+                <img
+                  className="w-[10rem] mx-4 cursor-pointer"
+                  src={KHICHDI_LINK}
+                  alt="Khichdi"
+                  onClick={() => handleImageClick("Khichdi")}
+                />
+                <img
+                  className="w-[10rem] mx-4 cursor-pointer"
+                  src={DESSERTS_LINK}
+                  alt="Desserts"
+                  onClick={() => handleImageClick("Desserts")}
+                />
+                <img
+                  className="w-[10rem] mx-4 cursor-pointer"
+                  src={RASGULLA_LINK}
+                  alt="Rasgulla"
+                  onClick={() => handleImageClick("Rasgulla")}
+                />
+              </div>
             </div>
           </div>
-          <div
-            className="flex overflow-x-scroll scrollbar-hide"
-            style={{ width: "100%" }}
-            ref={carouselRef}
-          >
-            <div className="flex" style={{ minWidth: "150%" }}>
-              <img
-                className="w-[10rem] mx-4 cursor-pointer"
-                src={ICECREAM_LINK}
-                alt="Ice Cream"
-                onClick={() => handleImageClick("Ice Cream")}
-              />
-              <img
-                className="w-[10rem] mx-4 cursor-pointer"
-                src={CAKE_LINK}
-                alt="Cake"
-                onClick={() => handleImageClick("Cake")}
-              />
-              <img
-                className="w-[10rem] mx-4 cursor-pointer"
-                src={ROLLS_LINK}
-                alt="Rolls"
-                onClick={() => handleImageClick("Rolls")}
-              />
-              <img
-                className="w-[10rem] mx-4 cursor-pointer"
-                src={PIZZA_LINK}
-                alt="Pizza"
-                onClick={() => handleImageClick("Pizza")}
-              />
-              <img
-                className="w-[10rem] mx-4 cursor-pointer"
-                src={NOODLES_LINK}
-                alt="Chinese"
-                onClick={() => handleImageClick("Chinese")}
-              />
-              <img
-                className="w-[10rem] mx-4 cursor-pointer"
-                src={BIRYANI_LINK}
-                alt="Biryani"
-                onClick={() => handleImageClick("Biryani")}
-              />
-              <img
-                className="w-[10rem] mx-4 cursor-pointer"
-                src={TEA_LINK}
-                alt="Tea"
-                onClick={() => handleImageClick("Tea")}
-              />
-              <img
-                className="w-[10rem] mx-4 cursor-pointer"
-                src={COFFEE_LINK}
-                alt="Coffee"
-                onClick={() => handleImageClick("Coffee")}
-              />
-              <img
-                className="w-[10rem] mx-4 cursor-pointer"
-                src={KHICHDI_LINK}
-                alt="Khichdi"
-                onClick={() => handleImageClick("Khichdi")}
-              />
-              <img
-                className="w-[10rem] mx-4 cursor-pointer"
-                src={DESSERTS_LINK}
-                alt="Desserts"
-                onClick={() => handleImageClick("Desserts")}
-              />
-              <img
-                className="w-[10rem] mx-4 cursor-pointer"
-                src={RASGULLA_LINK}
-                alt="Rasgulla"
-                onClick={() => handleImageClick("Rasgulla")}
-              />
+
+          <div className="h-[2px] mt-8 bg-gray-200"></div>
+
+          <div className="flex max-w-full mt-6 mb-10 mx-6 justify-between items-center">
+            <div className="btn-container">
+              <button className="toggle-butto text-gray-500">
+                <input
+                  type="checkbox"
+                  name="check-toggle"
+                  id="checkbox"
+                  className="hidden"
+                  onClick={toggleVeg}
+                />
+                <label for="checkbox" className="toggle">
+                  <div className="toggle__circle"></div>
+                  <div className="toggle__label font-bold">Veg</div>
+                </label>
+              </button>
+
+              <button
+                className="py-2 px-4 mx-4 hover:bg-orange-500 hover:text-white rounded-full bg-gray-200 font-bold my-2 border-gray-400 border shadow-md shadow-gray-500 text-gray-500"
+                onClick={filterTopRated}
+              >
+                Top Rated
+              </button>
+
+              <button
+                className=" py-2 px-4 mx-4 hover:bg-orange-500 hover:text-white rounded-full bg-gray-200 font-bold m-2 border-gray-400 border shadow-md shadow-gray-500 text-gray-500"
+                onClick={filterFastDelivery}
+              >
+                Fast Delivery
+              </button>
+              <button
+                className=" py-2 px-4 mx-4 hover:bg-orange-500 hover:text-white rounded-full bg-gray-200 font-bold m-2 border-gray-400 border shadow-md shadow-gray-500 text-gray-500"
+                onClick={filterLessCost}
+              >
+                Less than 200/-
+              </button>
             </div>
-          </div>
-        </div>
 
-        <div className="h-[2px] mt-8 bg-gray-200"></div>
-
-        <div className="flex max-w-full mt-6 mb-10 mx-6 justify-between items-center">
-          <div className="btn-container">
-            <button className="toggle-button">
+            <form className="mt-4" onSubmit={searchedRestaurentBtn}>
               <input
-                type="checkbox"
-                name="check-toggle"
-                id="checkbox"
-                className="hidden"
-                onClick={toggleVeg}
+                data-testId="searchInput"
+                placeholder="Type here.."
+                className="bg-gray-100 border-gray-300 py-[6px] px-[1rem] border-2 rounded-tl-full rounded-bl-full"
+                type="text"
+                value={searchInput}
+                onChange={(e) => setSearchInput(e.target.value)}
               />
-              <label for="checkbox" className="toggle">
-                <div className="toggle__circle"></div>
-                <div className="toggle__label font-bold">Veg</div>
-              </label>
-            </button>
-
-            <button
-              className="py-2 px-4 mx-4 hover:bg-orange-500 hover:text-white rounded-full bg-gray-200 font-bold my-2 border-gray-400 border shadow-md shadow-gray-500 text-gray-500"
-              onClick={filterTopRated}
-            >
-              Top Rated
-            </button>
-
-            <button
-              className=" py-2 px-4 mx-4 hover:bg-orange-500 hover:text-white rounded-full bg-gray-200 font-bold m-2 border-gray-400 border shadow-md shadow-gray-500 text-gray-500"
-              onClick={filterFastDelivery}
-            >
-              Fast Delivery
-            </button>
-            <button
-              className=" py-2 px-4 mx-4 hover:bg-orange-500 hover:text-white rounded-full bg-gray-200 font-bold m-2 border-gray-400 border shadow-md shadow-gray-500 text-gray-500"
-              onClick={filterLessCost}
-            >
-              Less than 200/-
-            </button>
-          </div>
-
-          <form className="mt-4" onSubmit={searchedRestaurentBtn}>
-            <input
-              data-testId="searchInput"
-              placeholder="Type here.."
-              className="bg-gray-100 border-gray-300 py-[6px] px-[1rem] border-2 rounded-tl-full rounded-bl-full"
-              type="text"
-              value={searchInput}
-              onChange={(e) => setSearchInput(e.target.value)}
-            />
-            <button
-              className="bg-zinc-500 hover:bg-orange-500 text-md p-[6px] pr-[1rem] pl-[1rem] rounded-tr-full rounded-br-full ml-2 text-white"
-              type="submit"
-            >
-              <FontAwesomeIcon icon={faMagnifyingGlass} />
-            </button>
-          </form>
-        </div>
-
-        {errorMessage && (
-          <div className="error-message text-red-500 text-center mt-[5rem] text-3xl font-bold">
-            {errorMessage}
-          </div>
-        )}
-
-        {heading && (
-          <h2 className="text-2xl font-bold mb-6 ml-6">
-            Restaurants for {heading}
-          </h2>
-        )}
-
-        <div className="flex flex-wrap justify-center">
-          {searchedRestaurents.map((restaurant) => (
-            <Link
-              to={`/restaurant/${restaurant.info.id}`}
-              key={restaurant.info.id}
-            >
-              {restaurant.info.avgRating > 4.2 ? (
-                <FreeDelivery resData={restaurant} label={"Free Delivery"} />
-              ) : (
-                <ResCard resData={restaurant} />
-              )}
-            </Link>
-          ))}
-        </div>
-      </div>
-
-      {isVisible && (
-        <>
-          <div className="fixed inset-0 bg-black opacity-50 z-10"></div>
-          <div
-            className={`login-page fixed z-10 border border-gray-500 shadow-2xl bg-white w-[40vw] right-0 top-0 h-[100vh] rounded-l-xl transition-transform ${
-              showLoginPage ? "animate-slideInRight" : "animate-slideOutRight"
-            }`}
-          >
-            <div className="my-[5rem] mx-[5rem]">
               <button
-                className="text-3xl text-gray-300 hover:text-orange-600"
-                onClick={closeLoginPage}
+                className="bg-zinc-500 hover:bg-orange-500 text-md p-[6px] pr-[1rem] pl-[1rem] rounded-tr-full rounded-br-full ml-2 text-white"
+                type="submit"
               >
-                <FontAwesomeIcon icon={faChevronLeft} />
+                <FontAwesomeIcon icon={faMagnifyingGlass} />
               </button>
-              <Login />
-            </div>
+            </form>
           </div>
-        </>
-      )}
+
+          {errorMessage && (
+            <div className="error-message text-red-500 text-center mt-[5rem] text-3xl font-bold">
+              {errorMessage}
+            </div>
+          )}
+
+          {heading && (
+            <h2 className="text-2xl font-bold mb-6 ml-6">
+              Restaurants for {heading}
+            </h2>
+          )}
+
+          <div className="flex flex-wrap justify-center">
+            {searchedRestaurents.map((restaurant) => (
+              <Link
+                to={`/restaurant/${restaurant.info.id}`}
+                key={restaurant.info.id}
+              >
+                {restaurant.info.avgRating > 4.2 ? (
+                  <FreeDelivery resData={restaurant} label={"Free Delivery"} />
+                ) : (
+                  <ResCard resData={restaurant} />
+                )}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {isVisible && (
+          <>
+            <div className="fixed inset-0 bg-black opacity-50 z-10"></div>
+            <div
+              className={`login-page fixed z-10 border border-gray-500 shadow-2xl bg-white w-[40vw] right-0 top-0 h-[100vh] rounded-l-xl transition-transform ${
+                showLoginPage ? "animate-slideInRight" : "animate-slideOutRight"
+              }`}
+            >
+              <div className="my-[5rem] mx-[5rem]">
+                <button
+                  className="text-3xl text-gray-300 hover:text-orange-600"
+                  onClick={closeLoginPage}
+                >
+                  <FontAwesomeIcon icon={faChevronLeft} />
+                </button>
+                <Login />
+              </div>
+            </div>
+          </>
+        )}
+      </div>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }
