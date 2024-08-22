@@ -44,7 +44,7 @@ const Shimmer = () => {
         <div class="bg-neutral-400/50 w-[15rem] h-12 mx-6 shimmer rounded-full"></div>
       </div>
 
-      <div className="flex justify-center mx-auto">
+      <div className="flex justify-center mx-auto mb-10">
         <div class="shimmer-card mr-6 flex flex-col bg-neutral-100 w-56 h-64 rounded-xl p-4 gap-4">
           <div class="bg-neutral-400/50 w-full h-32 shimmer rounded-md"></div>
           <div class="flex flex-col gap-2">
