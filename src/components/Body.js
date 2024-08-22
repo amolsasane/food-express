@@ -35,6 +35,7 @@ function Body() {
   const [errorMessage, setErrorMessage] = useState("");
   const [heading, setHeading] = useState("");
   const [showVeg, setShowVeg] = useState(false);
+  const [dataFetched, setDataFetched] = useState(false);
 
   const showLoginPage = useSelector((store) => store.login.login);
   const dispatch = useDispatch();
@@ -42,17 +43,27 @@ function Body() {
   const FreeDelivery = WithLabel(ResCard);
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    const fetchData = async () => {
+      try {
+        const data = await fetch(SWIGGY_API);
+        const result = await data.json();
+        const restaurants =
+          result?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants;
+        if (restaurants) {
+          setRestaurantsList(restaurants);
+          setSearchedRestaurents(restaurants);
+          setDataFetched(true);
+        }
+      } catch (error) {
+        setErrorMessage("Error fetching data!");
+      }
+    };
 
-  const fetchData = async () => {
-    const data = await fetch(SWIGGY_API);
-    const result = await data.json();
-    const restaurants =
-      result.data.cards[1].card.card.gridElements.infoWithStyle.restaurants;
-    setRestaurantsList(restaurants);
-    setSearchedRestaurents(restaurants);
-  };
+    if (!dataFetched) {
+      fetchData();
+    }
+  }, [dataFetched]);
 
   const onlineStatus = useOnlineStatus();
   if (onlineStatus === false) return <h1>Oh.. You are offline!</h1>;
