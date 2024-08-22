@@ -179,9 +179,7 @@ function Body() {
 
   return restaurantsList.length === 0 ? (
     <div className="shimmer-container">
-      {Array.from({ length: 10 }).map((_, index) => (
-        <Shimmer key={index} />
-      ))}
+      <Shimmer />
     </div>
   ) : (
     <div className="main max-w-[70rem] m-auto flex">

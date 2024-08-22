@@ -93,3 +93,19 @@ button {
   border-radius: 100% 0% 100% 0% / 100% 0% 100% 0%;
   transform: rotate(-20deg);
 }
+
+.shimmer {
+  background: linear-gradient(120deg, #e7e8ea 20%, #ffffff 30%, #e7e8ea 40%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite linear;
+  filter: blur(1px);
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
