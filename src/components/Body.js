@@ -195,7 +195,7 @@ function Body() {
     </div>
   ) : (
     <div>
-      <div className="main max-w-[70rem] m-auto flex pb-20">
+      <div className="main max-w-[70rem] m-auto flex pb-10">
         <div>
           <div className="carousel">
             <div className="flex justify-between">
