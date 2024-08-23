@@ -1,4 +1,4 @@
-import Shimmer from "./Shimmer";
+import Loader from "./Loader";
 import { useParams } from "react-router-dom";
 import useResMenu from "../utils/useResMenu";
 import MenuCatagory from "../components/MenuCatagory";
@@ -11,7 +11,7 @@ const ResMenu = () => {
 
   const resInfo = useResMenu(ResId);
 
-  if (resInfo === null) return <Shimmer />;
+  if (resInfo === null) return <Loader />;
 
   const { name, cuisines, costForTwoMessage } =
     resInfo?.cards[2]?.card?.card?.info;
