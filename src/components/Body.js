@@ -365,6 +365,7 @@ function Body() {
               <Link
                 to={`/restaurant/${restaurant.info.id}`}
                 key={restaurant.info.id}
+                className="transition-transform duration-300 ease-in-out hover:transform hover:scale-90"
               >
                 {restaurant.info.avgRating > 4.2 ? (
                   <FreeDelivery resData={restaurant} label={"Free Delivery"} />
