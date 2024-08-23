@@ -11,6 +11,7 @@ import {
   faArrowLeft,
   faMagnifyingGlass,
   faChevronLeft,
+  faCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { hideLogin } from "../utils/loginSlice.js";
@@ -89,6 +90,12 @@ function Body() {
       (res) => res.info.avgRating > 4.2
     );
     setSearchedRestaurents(topRatedRes);
+
+    if (topRatedRes.length === 0) {
+      setErrorMessage("No restaurants found!");
+    } else {
+      setErrorMessage("");
+    }
   };
 
   const filterFastDelivery = () => {
@@ -96,6 +103,12 @@ function Body() {
       (res) => res.info.avgRating > 4.5
     );
     setSearchedRestaurents(topRatedRes);
+
+    if (topRatedRes.length === 0) {
+      setErrorMessage("No restaurants found!");
+    } else {
+      setErrorMessage("");
+    }
   };
 
   const filterLessCost = () => {
@@ -103,6 +116,12 @@ function Body() {
       (res) => res.info.avgRating > 4.6
     );
     setSearchedRestaurents(topRatedRes);
+
+    if (topRatedRes.length === 0) {
+      setErrorMessage("No restaurants found!");
+    } else {
+      setErrorMessage("");
+    }
   };
 
   const searchedRestaurentBtn = (event) => {
@@ -295,52 +314,52 @@ function Body() {
 
           <div className="flex max-w-full mt-6 mb-10 mx-6 justify-between items-center">
             <div className="btn-container">
-              <button className="toggle-butto text-gray-500">
-                <input
-                  type="checkbox"
-                  name="check-toggle"
-                  id="checkbox"
-                  className="hidden"
-                  onClick={toggleVeg}
-                />
-                <label for="checkbox" className="toggle">
-                  <div className="toggle__circle"></div>
-                  <div className="toggle__label font-bold">Veg</div>
-                </label>
+              <button className="mx-4 rounded-full my-2">
+                <div class="toggle-border">
+                  <input id="one" type="checkbox" onClick={toggleVeg} />
+                  <label for="one">
+                    <div class="handle">
+                      <FontAwesomeIcon
+                        icon={faCircle}
+                        className="mt-[7px] text-green-700"
+                      />
+                    </div>
+                  </label>
+                </div>
               </button>
 
               <button
-                className="py-2 px-4 mx-4 hover:bg-orange-500 hover:text-white rounded-full bg-gray-200 font-bold my-2 border-gray-400 border shadow-md shadow-gray-500 text-gray-500"
+                className="py-2 px-4 mx-4 rounded-full font-bold m-2 border-gray-400 border text-gray-500 hover:shadow-md hover:shadow-gray-500"
                 onClick={filterTopRated}
               >
                 Top Rated
               </button>
 
               <button
-                className=" py-2 px-4 mx-4 hover:bg-orange-500 hover:text-white rounded-full bg-gray-200 font-bold m-2 border-gray-400 border shadow-md shadow-gray-500 text-gray-500"
+                className="py-2 px-4 mx-4 rounded-full font-bold m-2 border-gray-400 border text-gray-500 hover:shadow-md hover:shadow-gray-500"
                 onClick={filterFastDelivery}
               >
                 Fast Delivery
               </button>
               <button
-                className=" py-2 px-4 mx-4 hover:bg-orange-500 hover:text-white rounded-full bg-gray-200 font-bold m-2 border-gray-400 border shadow-md shadow-gray-500 text-gray-500"
+                className="py-2 px-4 mx-4 rounded-full font-bold m-2 border-gray-400 border text-gray-500 hover:shadow-md hover:shadow-gray-500"
                 onClick={filterLessCost}
               >
                 Less than 200/-
               </button>
             </div>
 
-            <form className="mt-4" onSubmit={searchedRestaurentBtn}>
+            <form className="" onSubmit={searchedRestaurentBtn}>
               <input
                 data-testId="searchInput"
-                placeholder="Type here.."
-                className="bg-gray-100 border-gray-300 py-[6px] px-[1rem] border-2 rounded-tl-full rounded-bl-full"
+                placeholder="Search for restaurants and food"
+                className="bg-gray-100 border-gray-300 py-[6px] px-[1rem] border-2 rounded-tl-full rounded-bl-full w-[17rem]"
                 type="text"
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
               />
               <button
-                className="bg-zinc-500 hover:bg-orange-500 text-md p-[6px] pr-[1rem] pl-[1rem] rounded-tr-full rounded-br-full ml-2 text-white"
+                className="bg-zinc-500 hover:bg-orange-500 text-md p-[6px] pr-[1rem] pl-[1rem] rounded-tr-full rounded-br-full ml-2 text-white border-2 border-zinc-500 hover:border-orange-500"
                 type="submit"
               >
                 <FontAwesomeIcon icon={faMagnifyingGlass} />
@@ -349,8 +368,15 @@ function Body() {
           </div>
 
           {errorMessage && (
-            <div className="error-message text-red-500 text-center mt-[5rem] text-3xl font-bold">
-              {errorMessage}
+            <div className="flex flex-col justify-center">
+              <img
+                alt="err"
+                src="https://cdn.dribbble.com/userupload/10454226/file/original-cfde1277cf7a96bc6ec7c72efa0b1b49.png?resize=400x300&vertical=center"
+                className="mx-auto"
+              />
+              <h1 className="error-message text-red-500 text-center mb-10 text-3xl font-bold">
+                {errorMessage}
+              </h1>
             </div>
           )}
 
