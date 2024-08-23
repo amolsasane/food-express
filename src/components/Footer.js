@@ -43,7 +43,7 @@ const Footer = () => {
               <div className="flex justify-center lg:justify-start mt-3 -mx-2 text-white text-2xl">
                 <a
                   href="https://www.linkedin.com/in/amolsasane"
-                  className="mx-2 hover:text-orange-500"
+                  className="mx-2 hover:text-gray-400"
                   aria-label="LinkedIn"
                   target="_blank"
                   rel="noreferrer"
@@ -53,7 +53,7 @@ const Footer = () => {
 
                 <a
                   href="https://github.com/amolsasane"
-                  className="mx-2 hover:text-orange-500"
+                  className="mx-2 hover:text-gray-400"
                   aria-label="Github"
                   target="_blank"
                   rel="noreferrer"
@@ -63,7 +63,7 @@ const Footer = () => {
 
                 <a
                   href="https://dev.to/amolsasane_"
-                  className="mx-2 hover:text-orange-500"
+                  className="mx-2 hover:text-gray-400"
                   aria-label="DEV"
                   target="_blank"
                   rel="noreferrer"
@@ -73,7 +73,7 @@ const Footer = () => {
 
                 <a
                   href="https://twitter.com/amolsasane_"
-                  className="mx-2 hover:text-orange-500"
+                  className="mx-2 hover:text-gray-400"
                   aria-label="Twitter"
                   target="_blank"
                   rel="noreferrer"
