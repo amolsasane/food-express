@@ -28,15 +28,26 @@ button {
   }
 }
 
-.toggle-border:last-child {
-  margin-bottom: 0;
+/* toggle buttons veg/non-veg*/
+.toggle-border,
+.toggle-border-main-veg,
+.toggle-border-main-nonveg {
+  position: relative;
+  display: inline-block;
+  width: 65px;
+  height: 20px;
 }
 
-.toggle-border input[type="checkbox"] {
+.toggle-border input[type="checkbox"],
+.toggle-border-main-veg input[type="checkbox"],
+.toggle-border-main-nonveg input[type="checkbox"] {
   display: none;
 }
 
-.toggle-border label {
+/* Base styles for labels */
+.toggle-border label,
+.toggle-border-main-veg label,
+.toggle-border-main-nonveg label {
   position: relative;
   display: inline-block;
   width: 65px;
@@ -45,27 +56,53 @@ button {
   border-radius: 80px;
   cursor: pointer;
   box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.3);
-  transition: 0.5s;
-  top: 2px;
+  transition: background 0.5s;
 }
 
-.toggle-border input[type="checkbox"]:checked + label {
-  background: rgb(112, 216, 112);
-}
-
-.handle {
+/* Base styles for handles */
+.handle-veg,
+.handle-nonVeg,
+.handle-main-veg,
+.handle-main-nonveg {
   position: absolute;
   top: -8px;
   left: -10px;
   width: 35px;
   height: 35px;
   background-color: white;
-  border: 3px solid green;
   border-radius: 20%;
   box-shadow: 3px 5px 10px 0 rgba(0, 0, 0, 0.4);
   transition: left 0.4s;
 }
 
-.toggle-border input[type="checkbox"]:checked + label > .handle {
-  left: calc(100% - 35px + 10px);
+.handle-veg,
+.handle-main-veg {
+  border: 3px solid green;
+}
+
+.handle-nonVeg,
+.handle-main-nonveg {
+  border: 3px solid rgb(209, 4, 4);
+}
+
+/* Different background colors for checked states */
+.toggle-border input[type="checkbox"]:checked + label.veg-label,
+.toggle-border-main-veg input[type="checkbox"]:checked + label {
+  background: rgb(112, 216, 112);
+}
+
+.toggle-border input[type="checkbox"]:checked + label.non-veg-label,
+.toggle-border-main-nonveg input[type="checkbox"]:checked + label {
+  background: rgb(243, 138, 138);
+}
+
+/* Handle position when checkbox is checked */
+.toggle-border input[type="checkbox"]:checked + label .handle-veg,
+.toggle-border input[type="checkbox"]:checked + label .handle-nonVeg,
+.toggle-border-main-veg input[type="checkbox"]:checked + label .handle-main-veg,
+.toggle-border-main-nonveg
+  input[type="checkbox"]:checked
+  + label
+  .handle-main-nonveg {
+  left: calc(100% - 20px);
 }
