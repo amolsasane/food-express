@@ -26,6 +26,7 @@ import {
   RASGULLA_LINK,
   TEA_LINK,
   BIRYANI_LINK,
+  BURGER_LINK,
   ICECREAM_LINK,
 } from "../utils/constants";
 import Footer from "./Footer.js";
@@ -37,6 +38,7 @@ function Body() {
   const [errorMessage, setErrorMessage] = useState("");
   const [heading, setHeading] = useState("");
   const [showVeg, setShowVeg] = useState(false);
+  const [showNonVeg, setShowNonVeg] = useState(false);
   const [dataFetched, setDataFetched] = useState(false);
 
   const showLoginPage = useSelector((store) => store.login.login);
@@ -77,9 +79,26 @@ function Body() {
 
     setSearchedRestaurents(vegRestaurants);
     setShowVeg(!showVeg);
+    setShowNonVeg(false);
 
     if (vegRestaurants.length === 0) {
       setErrorMessage("No vegetarian restaurants found!");
+    } else {
+      setErrorMessage("");
+    }
+  };
+
+  const toggleNonVeg = () => {
+    const nonVegRestaurants = showNonVeg
+      ? restaurantsList
+      : restaurantsList.filter((res) => !res.info?.hasOwnProperty("veg"));
+
+    setSearchedRestaurents(nonVegRestaurants);
+    setShowNonVeg(!showNonVeg);
+    setShowVeg(false);
+
+    if (nonVegRestaurants.length === 0) {
+      setErrorMessage("No non-veg restaurants found!");
     } else {
       setErrorMessage("");
     }
@@ -242,6 +261,12 @@ function Body() {
               <div className="flex" style={{ minWidth: "150%" }}>
                 <img
                   className="w-[10rem] mx-4 cursor-pointer"
+                  src={BURGER_LINK}
+                  alt="Burger"
+                  onClick={() => handleImageClick("Burger")}
+                />
+                <img
+                  className="w-[10rem] mx-4 cursor-pointer"
                   src={ICECREAM_LINK}
                   alt="Ice Cream"
                   onClick={() => handleImageClick("Ice Cream")}
@@ -314,15 +339,36 @@ function Body() {
 
           <div className="flex max-w-full mt-6 mb-10 mx-6 justify-between items-center">
             <div className="btn-container">
-              <button className="mx-4 rounded-full my-2">
-                <div class="toggle-border">
-                  <input id="one" type="checkbox" onClick={toggleVeg} />
+              <button className="ml-4 mr-6 rounded-full my-2">
+                <div class="toggle-border-main-veg">
+                  <input
+                    id="one"
+                    type="checkbox"
+                    checked={showVeg}
+                    onClick={toggleVeg}
+                  />
                   <label for="one">
-                    <div class="handle">
+                    <div class="handle-main-veg flex justify-center items-center">
                       <FontAwesomeIcon
                         icon={faCircle}
-                        className="mt-[7px] text-green-700"
+                        className="text-green-700"
                       />
+                    </div>
+                  </label>
+                </div>
+              </button>
+
+              <button className="mx-4 rounded-full my-2">
+                <div class="toggle-border-main-nonveg">
+                  <input
+                    id="two"
+                    type="checkbox"
+                    checked={showNonVeg}
+                    onClick={toggleNonVeg}
+                  />
+                  <label for="two">
+                    <div class="handle-main-nonveg flex justify-center place-items-center">
+                      <span className=" text-red-600 text-2xl -mt-1">▲</span>
                     </div>
                   </label>
                 </div>
