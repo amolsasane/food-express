@@ -1,22 +1,28 @@
 import MenuItemList from "./MenuItemList";
 
-const Catagory = ({ data, showItems, setShowIndex }) => {
-  function clickHandler() {
-    setShowIndex();
-  }
+const Catagory = ({ data, showItems, setShowIndex, showVeg, showNonVeg }) => {
+  const filteredMenu = showVeg
+    ? data.itemCards.filter(
+        (item) => item.card?.info?.itemAttribute?.vegClassifier === "VEG"
+      )
+    : showNonVeg
+    ? data.itemCards.filter(
+        (item) => item.card?.info?.itemAttribute?.vegClassifier === "NONVEG"
+      )
+    : data.itemCards;
 
   return (
-    <div className=" w-[50%] mx-auto my-4 p-2 shadow-lg ">
+    <div className="mx-auto my-4 p-2 shadow-lg">
       <div
         className="flex justify-between my-2 cursor-pointer"
-        onClick={() => clickHandler()}
+        onClick={setShowIndex}
       >
         <span className="font-bold">
-          {data.title} ({data.itemCards.length})
+          {data.title} ({filteredMenu.length})
         </span>
         <span>{showItems ? "⮝" : "⮟"}</span>
       </div>
-      <div>{showItems && <MenuItemList items={data.itemCards} />}</div>
+      <div>{showItems && <MenuItemList items={filteredMenu} />}</div>
     </div>
   );
 };

@@ -1,13 +1,13 @@
 import { MENU_ITEM_API } from "../utils/constants";
-import { addItem, clearCart } from "../utils/cartSlice";
+import { addItem } from "../utils/cartSlice";
 import { useDispatch } from "react-redux";
 
 const MenuItemList = ({ items }) => {
   const dispatch = useDispatch();
 
-  function addToCartHandeller(item) {
+  const addToCartHandler = (item) => {
     dispatch(addItem(item));
-  }
+  };
 
   return (
     <div>
@@ -18,7 +18,10 @@ const MenuItemList = ({ items }) => {
         >
           <div className="w-[80%] mr-5">
             <p className="font-bold">{item.card.info.name}</p>
-            <p className="mb-2">₹ {item.card.info.price / 100}</p>
+            <p className="mb-2">
+              ₹{" "}
+              {item.card.info.price / 100 || item.card.info.defaultPrice / 100}
+            </p>
             <p className="text-xs text-gray-400">
               {item.card.info.description}
             </p>
@@ -29,8 +32,8 @@ const MenuItemList = ({ items }) => {
               src={MENU_ITEM_API + item.card.info.imageId}
             />
             <button
-              className="bg-green-100 text-center rounded-md w- px-2 py-1  text-green-600 text-sm font-bold shadow-lg absolute mt-16"
-              onClick={() => addToCartHandeller(item)}
+              className="bg-green-100 text-center rounded-md w- px-2 py-1 text-green-600 text-sm font-bold shadow-lg absolute mt-16"
+              onClick={() => addToCartHandler(item)}
             >
               ADD +
             </button>
