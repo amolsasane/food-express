@@ -1,6 +1,13 @@
 import MenuItemList from "./MenuItemList";
 
-const Catagory = ({ data, showItems, setShowIndex, showVeg, showNonVeg }) => {
+const Catagory = ({
+  data,
+  showItems,
+  setShowIndex,
+  showVeg,
+  showNonVeg,
+  showBestseller,
+}) => {
   const filteredMenu = showVeg
     ? data.itemCards.filter(
         (item) => item.card?.info?.itemAttribute?.vegClassifier === "VEG"
@@ -9,7 +16,13 @@ const Catagory = ({ data, showItems, setShowIndex, showVeg, showNonVeg }) => {
     ? data.itemCards.filter(
         (item) => item.card?.info?.itemAttribute?.vegClassifier === "NONVEG"
       )
+    : showBestseller
+    ? data.itemCards.filter((item) => item.card?.info?.isBestseller === true)
     : data.itemCards;
+
+  if (filteredMenu.length === 0) {
+    return null;
+  }
 
   return (
     <div className="mx-auto my-4 p-2 shadow-lg">

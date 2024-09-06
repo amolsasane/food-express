@@ -11,6 +11,7 @@ const ResMenu = () => {
   const [errorMessage] = useState("");
   const [showVeg, setShowVeg] = useState(false);
   const [showNonVeg, setShowNonVeg] = useState(false);
+  const [showBestseller, setShowBestseller] = useState(false);
 
   const { ResId } = useParams();
   const resInfo = useResMenu(ResId);
@@ -39,12 +40,21 @@ const ResMenu = () => {
   const toggleVeg = () => {
     setShowVeg(!showVeg);
     setShowNonVeg(false);
+    setShowBestseller(false);
   };
 
   // Toggle non-veg items
   const toggleNonVeg = () => {
     setShowNonVeg(!showNonVeg);
     setShowVeg(false);
+    setShowBestseller(false);
+  };
+
+  //filter bestseller items
+  const filterBestseller = () => {
+    setShowBestseller(true);
+    setShowVeg(false);
+    setShowNonVeg(false);
   };
 
   return (
@@ -52,7 +62,7 @@ const ResMenu = () => {
       <h1 className="font-bold text-3xl pt-4 ml-4 text-start mt-[2rem]">
         {name}
       </h1>
-      <div className="bg-gray-200 w-full h-[14rem] my-2 rounded-b-[2rem] bg-gradient-to-b from-white p-4">
+      <div className="bg-gray-300 w-full h-[14rem] my-2 rounded-b-[2rem] bg-gradient-to-b from-white p-4">
         <div className="w-full h-full rounded-[2rem] border border-t-gray-300 bg-white">
           <p className="ml-4 mt-4 font-bold">
             <span className="text-white rounded-full px-[4px] pb-[3px] mr-2 text-sm bg-green-600">
@@ -105,7 +115,7 @@ const ResMenu = () => {
 
       <div className="flex max-w-full mt-6 mb-10 mx-6 justify-between items-center">
         <div className="btn-container">
-          <button className="mx-4 rounded-full my-2">
+          <button className="mx-4 rounded-full my-2 border-2 border-gray-300 py-3 pl-4 pr-3">
             <div className="toggle-border">
               <input
                 id="veg"
@@ -124,7 +134,7 @@ const ResMenu = () => {
             </div>
           </button>
 
-          <button className="mx-4 rounded-full my-2">
+          <button className="mx-4 rounded-full my-2 border-2 border-gray-300 py-3 pl-4 pr-3">
             <div className="toggle-border">
               <input
                 id="nonVeg"
@@ -134,10 +144,17 @@ const ResMenu = () => {
               />
               <label htmlFor="nonVeg" className="non-veg-label">
                 <div className="handle-nonVeg flex justify-center items-center">
-                  <span className="text-red-600">▲</span>
+                  <span className="text-red-600 -mt-[2px] text-lg">▲</span>
                 </div>
               </label>
             </div>
+          </button>
+
+          <button
+            className="mx-4 rounded-full my-2 border-2 border-gray-300 py-3 px-4 font-bold text-gray-500 hover:shadow-lg hover:shadow-gray-400"
+            onClick={filterBestseller}
+          >
+            Bestseller
           </button>
         </div>
       </div>
@@ -163,6 +180,7 @@ const ResMenu = () => {
           setShowIndex={() => setShowIndex(index)}
           showVeg={showVeg}
           showNonVeg={showNonVeg}
+          showBestseller={showBestseller}
         />
       ))}
     </div>

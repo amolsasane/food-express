@@ -59,10 +59,100 @@ button {
   transition: background 0.5s;
 }
 
-/* Base styles for handles */
+.toggle-border {
+  position: relative;
+  display: inline-block;
+  width: 65px;
+  height: 20px;
+}
+
+.toggle-border-main-veg {
+  position: relative;
+  display: inline-block;
+  width: 65px;
+  height: 20px;
+}
+
+.toggle-border-main-nonveg {
+  position: relative;
+  display: inline-block;
+  width: 65px;
+  height: 20px;
+}
+
+.toggle-border input[type="checkbox"] {
+  display: none;
+}
+
+.toggle-border-main-veg input[type="checkbox"] {
+  display: none;
+}
+
+.toggle-border-main-nonveg input[type="checkbox"] {
+  display: none;
+}
+
+.toggle-border label {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 13px;
+  background: #f5f2f2;
+  border-radius: 80px;
+  cursor: pointer;
+  box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.3);
+  transition: background 0.5s;
+}
+
+.toggle-border-main-veg label {
+  position: relative;
+  display: inline-block;
+  width: 65px;
+  height: 20px;
+  background: #f5f2f2;
+  border-radius: 80px;
+  cursor: pointer;
+  box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.3);
+  transition: background 0.5s;
+}
+
+.toggle-border-main-nonveg label {
+  position: relative;
+  display: inline-block;
+  width: 65px;
+  height: 20px;
+  background: #f5f2f2;
+  border-radius: 80px;
+  cursor: pointer;
+  box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.3);
+  transition: background 0.5s;
+}
+
 .handle-veg,
-.handle-nonVeg,
-.handle-main-veg,
+.handle-nonVeg {
+  position: absolute;
+  top: -6px;
+  left: -10px;
+  width: 26px;
+  height: 26px;
+  background-color: white;
+  border-radius: 20%;
+  box-shadow: 3px 5px 10px 0 rgba(0, 0, 0, 0.4);
+  transition: left 0.4s;
+}
+
+.handle-main-veg {
+  position: absolute;
+  top: -8px;
+  left: -10px;
+  width: 35px;
+  height: 35px;
+  background-color: white;
+  border-radius: 20%;
+  box-shadow: 3px 5px 10px 0 rgba(0, 0, 0, 0.4);
+  transition: left 0.4s;
+}
+
 .handle-main-nonveg {
   position: absolute;
   top: -8px;
@@ -75,31 +165,53 @@ button {
   transition: left 0.4s;
 }
 
-.handle-veg,
+.handle-veg {
+  border: 3px solid green;
+}
+
+.handle-nonVeg {
+  border: 3px solid red;
+}
+
 .handle-main-veg {
   border: 3px solid green;
 }
 
-.handle-nonVeg,
 .handle-main-nonveg {
-  border: 3px solid rgb(209, 4, 4);
+  border: 3px solid red;
 }
 
-/* Different background colors for checked states */
-.toggle-border input[type="checkbox"]:checked + label.veg-label,
+.toggle-border input[type="checkbox"]:checked + label.veg-label {
+  background: rgb(112, 216, 112);
+}
+
+.toggle-border input[type="checkbox"]:checked + label.non-veg-label {
+  background: rgb(247, 83, 83);
+}
+
 .toggle-border-main-veg input[type="checkbox"]:checked + label {
   background: rgb(112, 216, 112);
 }
 
-.toggle-border input[type="checkbox"]:checked + label.non-veg-label,
 .toggle-border-main-nonveg input[type="checkbox"]:checked + label {
   background: rgb(243, 138, 138);
 }
 
-/* Handle position when checkbox is checked */
-.toggle-border input[type="checkbox"]:checked + label .handle-veg,
-.toggle-border input[type="checkbox"]:checked + label .handle-nonVeg,
-.toggle-border-main-veg input[type="checkbox"]:checked + label .handle-main-veg,
+.toggle-border input[type="checkbox"]:checked + label .handle-veg {
+  left: calc(100% - 20px);
+}
+
+.toggle-border input[type="checkbox"]:checked + label .handle-nonVeg {
+  left: calc(100% - 20px);
+}
+
+.toggle-border-main-veg
+  input[type="checkbox"]:checked
+  + label
+  .handle-main-veg {
+  left: calc(100% - 20px);
+}
+
 .toggle-border-main-nonveg
   input[type="checkbox"]:checked
   + label
