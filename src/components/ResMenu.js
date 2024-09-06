@@ -113,51 +113,51 @@ const ResMenu = () => {
         <span className="text-gray-400">❖--</span>
       </h2>
 
-      <div className="flex max-w-full mt-6 mb-10 mx-6 justify-between items-center">
-        <div className="btn-container">
-          <button className="mx-4 rounded-full my-2 border-2 border-gray-300 py-3 pl-4 pr-3">
-            <div className="toggle-border">
-              <input
-                id="veg"
-                type="checkbox"
-                checked={showVeg}
-                onChange={toggleVeg}
-              />
-              <label htmlFor="veg" className="veg-label">
-                <div className="handle-veg flex justify-center items-center">
-                  <FontAwesomeIcon
-                    icon={faCircle}
-                    className="text-sm text-green-700"
-                  />
-                </div>
-              </label>
-            </div>
-          </button>
+      <div className="btn-container flex max-w-full mt-10 mb-6 justify-start">
+        <button className="mr-4 rounded-full my-2 border-2 border-gray-300 py-3 pl-4 pr-3">
+          <div className="toggle-border">
+            <input
+              id="veg"
+              type="checkbox"
+              checked={showVeg}
+              onChange={toggleVeg}
+            />
+            <label htmlFor="veg" className="veg-label">
+              <div className="handle-veg flex justify-center items-center">
+                <FontAwesomeIcon
+                  icon={faCircle}
+                  className="text-sm text-green-700"
+                />
+              </div>
+            </label>
+          </div>
+        </button>
 
-          <button className="mx-4 rounded-full my-2 border-2 border-gray-300 py-3 pl-4 pr-3">
-            <div className="toggle-border">
-              <input
-                id="nonVeg"
-                type="checkbox"
-                checked={showNonVeg}
-                onChange={toggleNonVeg}
-              />
-              <label htmlFor="nonVeg" className="non-veg-label">
-                <div className="handle-nonVeg flex justify-center items-center">
-                  <span className="text-red-600 -mt-[2px] text-lg">▲</span>
-                </div>
-              </label>
-            </div>
-          </button>
+        <button className="mx-4 rounded-full my-2 border-2 border-gray-300 py-3 pl-4 pr-3">
+          <div className="toggle-border">
+            <input
+              id="nonVeg"
+              type="checkbox"
+              checked={showNonVeg}
+              onChange={toggleNonVeg}
+            />
+            <label htmlFor="nonVeg" className="non-veg-label">
+              <div className="handle-nonVeg flex justify-center items-center">
+                <span className="text-red-600 -mt-[2px] text-lg">▲</span>
+              </div>
+            </label>
+          </div>
+        </button>
 
-          <button
-            className="mx-4 rounded-full my-2 border-2 border-gray-300 py-3 px-4 font-bold text-gray-500 hover:shadow-lg hover:shadow-gray-400"
-            onClick={filterBestseller}
-          >
-            Bestseller
-          </button>
-        </div>
+        <button
+          className="ml-4 rounded-full my-2 border-2 border-gray-300 py-3 px-4 font-bold text-gray-500 hover:shadow-lg hover:shadow-gray-400"
+          onClick={filterBestseller}
+        >
+          Bestseller
+        </button>
       </div>
+
+      <div className="h-[1px] bg-gray-300 w-full"></div>
 
       {errorMessage && (
         <div className="flex flex-col justify-center">
