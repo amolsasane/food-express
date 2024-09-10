@@ -4,6 +4,7 @@ const cartSlice = createSlice({
   name: "Cart",
   initialState: {
     items: [],
+    ShowToaster: false,
   },
   reducers: {
     addItem: (state, action) => {
@@ -15,6 +16,7 @@ const cartSlice = createSlice({
       } else {
         state.items.push({ ...action.payload, id: itemId, quantity: 1 });
       }
+      state.ShowToaster = true;
     },
     removeItem: (state, action) => {
       const itemId = action.payload.card.info.id;
@@ -26,9 +28,11 @@ const cartSlice = createSlice({
           state.items = state.items.filter((item) => item.id !== itemId);
         }
       }
+      state.ShowToaster = state.items.length > 0;
     },
     clearCart: (state) => {
       state.items = [];
+      state.ShowToaster = false;
     },
   },
 });

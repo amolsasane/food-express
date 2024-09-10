@@ -1,5 +1,5 @@
 import Loader from "./Loader";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import useResMenu from "../utils/useResMenu";
 import MenuCatagory from "../components/MenuCatagory";
 import { useState } from "react";
@@ -9,8 +9,10 @@ import {
   faCircle,
   faLocationDot,
   faMotorcycle,
+  faShoppingBag,
 } from "@fortawesome/free-solid-svg-icons";
 import fssaiLogo from "../utils/images/fssai.png";
+import { useSelector } from "react-redux";
 
 const ResMenu = () => {
   const [showIndex, setShowIndex] = useState(0);
@@ -18,6 +20,7 @@ const ResMenu = () => {
   const [showVeg, setShowVeg] = useState(false);
   const [showNonVeg, setShowNonVeg] = useState(false);
   const [showBestseller, setShowBestseller] = useState(false);
+  const isVisible = useSelector((store) => store.cart.ShowToaster);
 
   const { ResId } = useParams();
   const resInfo = useResMenu(ResId);
@@ -193,7 +196,7 @@ const ResMenu = () => {
       <div className="bg-gray-200 mt-6">
         <div className="flex items-center mx-4">
           <img
-            className="w-20 bg-zinc-200 filter grayscale opacity-50"
+            className="w-16 bg-zinc-200 filter grayscale opacity-50"
             alt="fssai"
             src={fssaiLogo}
           />
@@ -212,9 +215,11 @@ const ResMenu = () => {
         </div>
         <div className="h-[1px] bg-gray-400 mx-4 opacity-50"></div>
         <div className="bg-gray-200 flex justify-center">
-          <h1 className="rounded-lg border border-gray-500 text-gray-500 py-2 px-4 mt-10 h-fit font-bold mr-6">
-            FoodExpress
-          </h1>
+          <Link to="/">
+            <h1 className="rounded-lg border border-gray-500 text-gray-500 py-2 px-4 mt-10 h-fit font-bold mr-6">
+              FoodExpress
+            </h1>
+          </Link>
           <button
             className="rounded-lg bg-black text-white py-2 px-4 mt-10 h-fit font-bold"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
@@ -226,6 +231,19 @@ const ResMenu = () => {
           All rights reserved | Amol Sasane
         </p>
       </div>
+
+      {isVisible && (
+        <div
+          className={`toaster ${isVisible ? "toaster-enter" : "toaster-exit"}`}
+        >
+          <h1>Items added</h1>
+          <Link to="/cart">
+            <div>
+              VIEW CART <FontAwesomeIcon icon={faShoppingBag} />
+            </div>
+          </Link>
+        </div>
+      )}
     </div>
   );
 };
