@@ -273,3 +273,25 @@ button {
 .toaster-exit {
   animation: bounce-out 0.4s ease-in;
 }
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.btn-bounce {
+  animation: bounce 4s infinite;
+}
+
+.delay-1 {
+  animation-delay: 1s;
+}
+
+.delay-2 {
+  animation-delay: 0.5s;
+}
