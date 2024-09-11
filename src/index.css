@@ -254,7 +254,7 @@ button {
 .toaster {
   position: fixed;
   bottom: 0;
-  width: 52.7%;
+  width: 50rem;
   background-color: #f97316;
   color: white;
   font-weight: bold;
@@ -267,7 +267,7 @@ button {
 }
 
 .toaster-enter {
-  animation: bounce-in 0.4s ease-out;
+  animation: bounce-in 0.3s ease-out;
 }
 
 .toaster-exit {
