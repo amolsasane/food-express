@@ -16,7 +16,6 @@ const Cart = () => {
   const [error, setError] = useState("");
   const dispatch = useDispatch();
 
-  // Handling input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -24,12 +23,8 @@ const Cart = () => {
       [name]: value,
     });
   };
-
-  // Handling form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Check if any field is empty
     if (
       !formData.address1 ||
       !formData.address2 ||
@@ -39,11 +34,7 @@ const Cart = () => {
       setError("Please fill your details");
       return;
     }
-
-    // Clear error and proceed if validation passes
     setError("");
-    // Add payment processing logic here
-    //console.log("Form submitted:", formData);
   };
 
   const clearCartHandler = () => {
@@ -182,12 +173,14 @@ const Cart = () => {
                       value={formData.amount}
                       onChange={handleInputChange}
                     />
-                    <button
-                      type="submit"
-                      className="p-2 mt-4 shadow-md shadow-gray-500 hover:shadow-gray-600 bg-green-500 saturate-150 font-bold text-white rounded-md"
-                    >
-                      Confirm Order
-                    </button>
+                    <Link to="/orderplaced">
+                      <button
+                        type="submit"
+                        className="p-2 mt-4 shadow-md shadow-gray-500 hover:shadow-gray-600 bg-green-500 saturate-150 font-bold text-white rounded-md"
+                      >
+                        Confirm Order
+                      </button>
+                    </Link>
                     <button
                       className="p-2 mt-4 shadow-md shadow-gray-400 hover:shadow-gray-600 border border-gray-400 ml-4 font-bold text-gray-600 rounded-md"
                       type="button"
