@@ -10,7 +10,6 @@ import {
   faHeadphones,
   faHouse,
   faGift,
-  faSeedling,
 } from "@fortawesome/free-solid-svg-icons";
 import { showLogin, turnToLogin } from "../utils/loginSlice";
 
