@@ -1,6 +1,6 @@
 import myImage from "../utils/images/food-logo.png";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import UserContext from "../utils/UserContext";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -35,44 +35,54 @@ function Header() {
         <nav className="">
           <ul className="flex p-4">
             <li className="p-2 mx-6 font-bold text-md text-orange-600">
-              <Link to="/">
-                <FontAwesomeIcon icon={faHouse} />
-                <span className="pl-2 text-gray-600 hover:text-orange-600">
-                  Home
-                </span>
-              </Link>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? "text-orange-600" : "text-gray-600"
+                }
+              >
+                <FontAwesomeIcon icon={faHouse} className="text-orange-600" />
+                <span className="pl-2">Home</span>
+              </NavLink>
             </li>
             <li className="p-2 mx-6 font-bold text-md text-orange-600">
-              <Link to="/">
-                <FontAwesomeIcon icon={faGift} />
-                <span className="pl-2 text-gray-600 hover:text-orange-600">
-                  Offers
-                </span>
-              </Link>
+              <NavLink
+                to="/offers"
+                className={({ isActive }) =>
+                  isActive ? "text-orange-600" : "text-gray-600"
+                }
+              >
+                <FontAwesomeIcon icon={faGift} className="text-orange-600" />
+                <span className="pl-2">Offers</span>
+              </NavLink>
             </li>
             <li className="p-2 mx-6 font-bold text-md text-orange-600">
-              <Link to="/contact">
-                <FontAwesomeIcon icon={faHeadphones} />
-                <span className="pl-2 text-gray-600 hover:text-orange-600">
-                  Contact
-                </span>
-              </Link>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  isActive ? "text-orange-600" : "text-gray-600"
+                }
+              >
+                <FontAwesomeIcon
+                  icon={faHeadphones}
+                  className="text-orange-600"
+                />
+                <span className="pl-2 hover:text-orange-600">Contact</span>
+              </NavLink>
             </li>
             <li className="p-2 mx-6 font-bold text-md text-orange-600">
-              <Link to="/">
-                <FontAwesomeIcon icon={faSeedling} />
-                <span className="pl-2 text-gray-600 hover:text-orange-600">
-                  Grocery
-                </span>
-              </Link>
-            </li>
-            <li className="p-2 mx-6 font-bold text-md text-orange-600">
-              <Link to="/cart">
-                <FontAwesomeIcon icon={faCartShopping} />
-                <span className="pl-2 text-gray-600 hover:text-orange-600">
-                  Cart
-                </span>
-              </Link>
+              <NavLink
+                to="/cart"
+                className={({ isActive }) =>
+                  isActive ? "text-orange-600" : "text-gray-600"
+                }
+              >
+                <FontAwesomeIcon
+                  icon={faCartShopping}
+                  className="text-orange-600"
+                />
+                <span className="pl-2 hover:text-orange-600">Cart</span>
+              </NavLink>
             </li>
             <div className="relative group flex flex-col mt-2">
               <button className="mx-6 font-bold text-md text-orange-600">
