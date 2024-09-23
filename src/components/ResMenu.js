@@ -6,10 +6,10 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowUp,
+  faCartShopping,
   faCircle,
   faLocationDot,
   faMotorcycle,
-  faShoppingBag,
 } from "@fortawesome/free-solid-svg-icons";
 import fssaiLogo from "../utils/images/fssai.png";
 import { useSelector } from "react-redux";
@@ -21,6 +21,7 @@ const ResMenu = () => {
   const [showNonVeg, setShowNonVeg] = useState(false);
   const [showBestseller, setShowBestseller] = useState(false);
   const isVisible = useSelector((store) => store.cart.ShowToaster);
+  const cartItems = useSelector((store) => store.cart.items);
 
   const { ResId } = useParams();
   const resInfo = useResMenu(ResId);
@@ -236,10 +237,12 @@ const ResMenu = () => {
         <div
           className={`toaster ${isVisible ? "toaster-enter" : "toaster-exit"}`}
         >
-          <h1>Items added</h1>
+          <h1>
+            {cartItems.length} {cartItems.length > 1 ? "items" : "item"} added
+          </h1>
           <Link to="/cart">
             <div>
-              VIEW CART <FontAwesomeIcon icon={faShoppingBag} />
+              VIEW CART <FontAwesomeIcon icon={faCartShopping} />
             </div>
           </Link>
         </div>
