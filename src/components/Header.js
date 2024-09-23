@@ -1,6 +1,6 @@
 import myImage from "../utils/images/food-logo.png";
 import { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import UserContext from "../utils/UserContext";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -41,7 +41,7 @@ function Header() {
                 }
               >
                 <FontAwesomeIcon icon={faHouse} className="text-orange-600" />
-                <span className="pl-2">Home</span>
+                <span className="pl-2 hover:text-orange-600">Home</span>
               </NavLink>
             </li>
             <li className="p-2 mx-6 font-bold text-md text-orange-600">
@@ -52,7 +52,7 @@ function Header() {
                 }
               >
                 <FontAwesomeIcon icon={faGift} className="text-orange-600" />
-                <span className="pl-2">Offers</span>
+                <span className="pl-2 hover:text-orange-600">Offers</span>
               </NavLink>
             </li>
             <li className="p-2 mx-6 font-bold text-md text-orange-600">
