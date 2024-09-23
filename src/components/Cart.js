@@ -12,6 +12,20 @@ import UserContext from "../utils/UserContext.js";
 const Cart = () => {
   const navigate = useNavigate();
   const cartItems = useSelector((store) => store.cart.items);
+
+  const itemTotal = cartItems
+    .map((item) => {
+      const price = item.card.info.price || item.card.info.defaultPrice;
+      return (price / 100) * item.quantity;
+    })
+    .reduce((acc, curr) => acc + curr, 0);
+
+  const deliveryFee = itemTotal > 250 ? 0 : 49;
+
+  const discount = itemTotal * 0.1;
+
+  const toPay = itemTotal - discount + deliveryFee;
+
   const showLoginPage = useSelector((store) => store.login.login);
   const { loggedInUser } = useContext(UserContext);
   const [formData, setFormData] = useState({
@@ -47,6 +61,8 @@ const Cart = () => {
       setError("Please enter card number");
     } else if (!formData.amount) {
       setError("Please provide the amount");
+    } else if (Number(formData.amount) !== toPay) {
+      setError("Please ender the correct amount");
     } else {
       setError("");
       navigate("/orderplaced");
@@ -208,7 +224,6 @@ const Cart = () => {
                 <form onSubmit={handleSubmit}>
                   <div className="flex">
                     <select className="border border-gray-400 rounded-md mr-4 font-bold text-gray-600 p-1 bg-zinc-100">
-                      <option value="">Payment Method</option>
                       <option>UPI Payment</option>
                       <option>Card Payment</option>
                       <option>COD Payment</option>
@@ -238,9 +253,9 @@ const Cart = () => {
                       />
                       <button
                         type="submit"
-                        className="p-2 mt-4 shadow-md shadow-gray-500 hover:shadow-gray-600 bg-green-500 saturate-150 font-bold text-white rounded-md"
+                        className="p-2 mt-4 shadow-md shadow-gray-400 hover:shadow-gray-600 hover:bg-green-500 saturate-150 font-bold hover:text-white text-gray-600 rounded-md border border-gray-400"
                       >
-                        Confirm Order
+                        Pay Now
                       </button>
                       <button
                         className="p-2 mt-4 shadow-md shadow-gray-400 hover:shadow-gray-600 border border-gray-400 ml-4 font-bold text-gray-600 rounded-md"
@@ -264,8 +279,20 @@ const Cart = () => {
 
         {/* Cart Items */}
         <div className="w-[30%] rounded-md shadow-xl shadow-gray-300 mt-4 h-fit">
-          <div className="max-h-[400px] overflow-y-auto">
+          <div className="max-h-[300px] overflow-y-auto">
             <MenuItemList items={cartItems} />
+          </div>
+          <div className="h-1 bg-gray-300"></div>
+          <div className="pl-2 flex justify-between font-bold text-sm text-gray-500 bg-gray-100 py-2 m-2 border-[3px] border-dashed border-gray-500">
+            <div>
+              <p className="mb-1">Free delivery on orders above 250/-</p>
+              <p>10% discount added</p>
+            </div>
+            <img
+              className="w-[5rem]"
+              alt="discount"
+              src="https://w7.pngwing.com/pngs/1007/745/png-transparent-ticket-logo-discounts-and-allowances-computer-icons-coupon-promotion-promo-icon-miscellaneous-text-rectangle.png"
+            />
           </div>
           <div className="h-1 bg-gray-300"></div>
           <div>
@@ -273,20 +300,23 @@ const Cart = () => {
             <div className="h-[1px] bg-gray-500 mx-2 mb-4"></div>
             <div className="flex justify-between">
               <p className=" text-gray-600 mx-2">Item Total</p>
-              <p className="text-gray-600 mx-2">₹ XX</p>
+              <p className="text-gray-600 mx-2">₹ {itemTotal.toFixed(2)}</p>
             </div>
             <div className="flex justify-between">
               <p className=" text-gray-600 mx-2">Delivery Fee</p>
-              <p className="text-gray-600 mx-2">₹ XX</p>
+              <p className="text-gray-600 mx-2">₹ {deliveryFee.toFixed(2)}</p>
             </div>
             <div className="flex justify-between">
-              <p className=" text-gray-600 mx-2">Discount Added</p>
-              <p className="text-gray-600 mx-2">₹ XX</p>
+              <p className=" text-gray-600 mx-2">Discount</p>
+              <p className="text-gray-600 mx-2">₹ {discount}</p>
             </div>
+
             <div className="h-[1px] bg-gray-500 m-2"></div>
             <div className="flex justify-between m-2">
               <p className="font-bold text-gray-600 x-2">TO PAY</p>
-              <p className="text-gray-600 mx-2 font-bold">₹ XX</p>
+              <p className="text-green-700 mx-2 font-bold">
+                ₹ {toPay.toFixed(2)}
+              </p>
             </div>
           </div>
         </div>
