@@ -297,28 +297,92 @@ button {
 }
 
 /* pay now button*/
-.pay-button {
-  width: 6em;
-  font-size: 15px;
-  font-family: inherit;
+.btn-pay {
+  --clr-font-main: hsla(0 0% 20% / 100);
+  --btn-bg-1: hsla(123, 80%, 45%, 1);
+  --btn-bg-2: hsla(145, 63%, 42%, 1);
+  --btn-bg-color: hsla(360, 100%, 100%, 1);
+  --radii: 0.5em;
+  cursor: pointer;
+  min-width: 120px;
+  min-height: 44px;
+  font-size: var(--size, 1rem);
+  font-weight: 500;
+  transition: 0.5s ease-in-out;
+  background-size: 280% auto;
+  background-image: linear-gradient(
+    325deg,
+    var(--btn-bg-2) 0%,
+    var(--btn-bg-1) 55%,
+    var(--btn-bg-2) 90%
+  );
+  border: none;
+  border-radius: var(--radii);
+  color: var(--btn-bg-color);
+  box-shadow: 0px 0px 20px rgba(128, 255, 128, 0.5),
+    0px 5px 5px -1px rgba(34, 139, 34, 0.25),
+    inset 4px 4px 8px rgba(173, 255, 47, 0.5),
+    inset -4px -4px 8px rgba(0, 128, 0, 0.35);
+}
+
+.btn-pay:hover {
+  background-position: left bottom;
+  background-image: linear-gradient(
+    325deg,
+    hsla(110, 90%, 40%, 1) 0%,
+    hsla(140, 70%, 50%, 1) 55%,
+    hsla(110, 90%, 40%, 1) 90%
+  );
+  box-shadow: 0px 0px 25px rgba(102, 255, 102, 0.8),
+    0px 8px 12px -1px rgba(34, 139, 34, 0.4),
+    inset 6px 6px 12px rgba(144, 238, 144, 0.7),
+    inset -6px -6px 12px rgba(0, 100, 0, 0.5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-pay {
+    transition: linear;
+  }
+}
+
+/* login button */
+.login-button {
   position: relative;
   overflow: hidden;
+  border-radius: 0.5rem;
+  height: 2.5rem;
+  background: #0e0e0e;
+  background-size: 400%;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: var(--size, 1rem);
+  font-weight: 500;
+}
+
+.login-button:hover::before {
+  transform: scaleX(1);
+}
+
+.button-content {
+  position: relative;
   z-index: 1;
 }
 
-.pay-button::before {
+.login-button::before {
   content: "";
-  width: 0;
-  height: 3em;
   position: absolute;
   top: 0;
   left: 0;
-  background-image: linear-gradient(to right, #1e9624 0%, #9af30b 70%);
-  transition: 0.5s ease;
-  display: block;
-  z-index: -1;
-}
-
-.pay-button:hover::before {
-  width: 9em;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  width: 100%;
+  height: inherit;
+  border-radius: inherit;
+  background: linear-gradient(
+    82.3deg,
+    rgba(150, 93, 233, 1) 10.8%,
+    rgba(99, 88, 238, 1) 94.3%
+  );
+  transition: all 0.475s;
 }

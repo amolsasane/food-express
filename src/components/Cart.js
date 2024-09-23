@@ -6,7 +6,7 @@ import { clearCart } from "../utils/cartSlice";
 import Login from "./Login.js";
 import { hideLogin, showLogin, turnToLogin } from "../utils/loginSlice.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { faAngleRight, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import UserContext from "../utils/UserContext.js";
 
 const Cart = () => {
@@ -139,16 +139,19 @@ const Cart = () => {
                       Please login now, to place your order!
                     </p>
                     <button
-                      className="text-gray-600 border border-gray-400 rounded-md shadow-md shadow-gray-400 hover:shadow-gray-600 px-2 pb-2 pt-1 font-bold mr-4 mt-3"
+                      className="login-button px-6 pb-2 pt-1 mt-2 mr-4 shadow-md shadow-gray-600"
                       onClick={handleLogin}
                     >
-                      LOGIN
-                    </button>
-                    <button
-                      className="text-gray-600 border border-gray-400 rounded-md shadow-md shadow-gray-400 hover:shadow-gray-600 px-2 pb-2 pt-1 font-bold mt-3"
-                      onClick={handleLogin}
-                    >
-                      SIGN UP
+                      <span class="button-content font-bold">
+                        Login{" "}
+                        <span className="pl-1">
+                          Now{" "}
+                          <FontAwesomeIcon
+                            icon={faAngleRight}
+                            className="pl-2"
+                          />{" "}
+                        </span>
+                      </span>
                     </button>
                   </div>
                 ) : (
@@ -251,10 +254,7 @@ const Cart = () => {
                         value={formData.amount}
                         onChange={handleInputChange}
                       />
-                      <button
-                        type="submit"
-                        className="pay-button text-gray-600 hover:text-white rounded-md shadow-md border border-gray-400 shadow-gray-400 hover hover:shadow-gray-600 font-bold mt-4 p-2"
-                      >
+                      <button type="submit" className="btn-pay mt-4">
                         Pay Now
                       </button>
                       <button
