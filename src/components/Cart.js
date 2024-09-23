@@ -253,7 +253,7 @@ const Cart = () => {
                       />
                       <button
                         type="submit"
-                        className="p-2 mt-4 shadow-md shadow-gray-400 hover:shadow-gray-600 hover:bg-green-500 saturate-150 font-bold hover:text-white text-gray-600 rounded-md border border-gray-400"
+                        className="pay-button text-gray-600 hover:text-white rounded-md shadow-md border border-gray-400 shadow-gray-400 hover hover:shadow-gray-600 font-bold mt-4 p-2"
                       >
                         Pay Now
                       </button>

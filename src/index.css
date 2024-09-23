@@ -295,3 +295,30 @@ button {
 .delay-2 {
   animation-delay: 0.5s;
 }
+
+/* pay now button*/
+.pay-button {
+  width: 6em;
+  font-size: 15px;
+  font-family: inherit;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.pay-button::before {
+  content: "";
+  width: 0;
+  height: 3em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to right, #1e9624 0%, #9af30b 70%);
+  transition: 0.5s ease;
+  display: block;
+  z-index: -1;
+}
+
+.pay-button:hover::before {
+  width: 9em;
+}
