@@ -74,7 +74,7 @@ const MenuItemList = ({ items }) => {
               <div className="absolute mt-16 flex items-center justify-center">
                 {itemCount === 0 ? (
                   <button
-                    className="bg-white border shadow-md shadow-gray-400 border-gray-300 text-green-600 text-center rounded-md px-4 py-1 text-sm font-bold transition duration-200 hover:bg-green-50"
+                    className="bg-white border add-btn-hover-pulse shadow-md shadow-gray-400 border-gray-300 text-green-600 text-center rounded-md px-4 py-1 text-sm font-bold transition duration-200 hover:bg-green-50"
                     onClick={() => incrementCount(item)}
                   >
                     ADD

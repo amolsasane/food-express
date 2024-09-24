@@ -68,11 +68,11 @@ const ResMenu = () => {
   };
 
   return (
-    <div className="res-menu max-w-[50rem] m-auto">
-      <h1 className="font-bold text-3xl pt-4 ml-4 text-start mt-[2rem]">
+    <div className="res-menu max-w-[50rem] m-auto slide-down">
+      <h1 className="font-bold text-3xl pt-4 ml-4 text-start mt-[2rem] bounce-down">
         {name}
       </h1>
-      <div className="bg-gray-300 w-full h-[14rem] my-2 rounded-b-[2rem] bg-gradient-to-b from-white p-4">
+      <div className="bg-gray-300 w-full h-[14rem] my-2 rounded-b-[2rem] bg-gradient-to-b from-white p-4 slide-down">
         <div className="w-full h-full rounded-[2rem] border border-t-gray-300 bg-white">
           <p className="ml-4 mt-4 font-bold">
             <span className="text-white rounded-full px-[4px] pb-[3px] mr-2 text-sm bg-green-600">
@@ -124,7 +124,7 @@ const ResMenu = () => {
       </h2>
 
       <div className="btn-container flex max-w-full mt-10 mb-6 justify-start">
-        <button className="mr-4 rounded-full my-2 border-2 border-gray-300 py-3 pl-4 pr-3">
+        <button className="mr-4 rounded-full my-2 border-2 border-gray-300 py-3 pl-4 pr-3 slide-left">
           <div className="toggle-border">
             <input
               id="veg"
@@ -143,7 +143,7 @@ const ResMenu = () => {
           </div>
         </button>
 
-        <button className="mx-4 rounded-full my-2 border-2 border-gray-300 py-3 pl-4 pr-3">
+        <button className="mx-4 rounded-full my-2 border-2 border-gray-300 py-3 pl-4 pr-3 slide-left">
           <div className="toggle-border">
             <input
               id="nonVeg"
@@ -160,7 +160,7 @@ const ResMenu = () => {
         </button>
 
         <button
-          className="ml-4 rounded-full my-2 border-2 border-gray-300 py-3 px-4 font-bold text-gray-500 hover:shadow-lg hover:shadow-gray-400"
+          className="slide-right ml-4 rounded-full my-2 border-2 border-gray-300 py-3 px-4 font-bold text-gray-500 hover:shadow-lg hover:shadow-gray-400"
           onClick={filterBestseller}
         >
           Bestseller
@@ -191,6 +191,7 @@ const ResMenu = () => {
           showVeg={showVeg}
           showNonVeg={showNonVeg}
           showBestseller={showBestseller}
+          className="slide-up"
         />
       ))}
 
@@ -242,7 +243,11 @@ const ResMenu = () => {
           </h1>
           <Link to="/cart">
             <div>
-              VIEW CART <FontAwesomeIcon icon={faCartShopping} />
+              VIEW CART{" "}
+              <FontAwesomeIcon
+                icon={faCartShopping}
+                className="back-and-forth"
+              />
             </div>
           </Link>
         </div>

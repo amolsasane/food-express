@@ -232,7 +232,7 @@ function Body() {
       <Shimmer />
     </div>
   ) : (
-    <div>
+    <div className="fade-in">
       <div className="main max-w-[70rem] m-auto flex pb-10">
         <div>
           <div className="carousel">
@@ -254,7 +254,7 @@ function Body() {
               </div>
             </div>
             <div
-              className="flex overflow-x-scroll scrollbar-hide"
+              className="flex overflow-x-scroll scrollbar-hide slide-right"
               style={{ width: "100%" }}
               ref={carouselRef}
             >
@@ -395,7 +395,7 @@ function Body() {
               </button>
             </div>
 
-            <form className="" onSubmit={searchedRestaurentBtn}>
+            <form onSubmit={searchedRestaurentBtn}>
               <input
                 data-testId="searchInput"
                 placeholder="Search for restaurants and food"
@@ -432,7 +432,7 @@ function Body() {
             </h2>
           )}
 
-          <div className="flex flex-wrap justify-center">
+          <div className="flex flex-wrap justify-center slide-up">
             {searchedRestaurents.map((restaurant) => (
               <Link
                 to={`/restaurant/${restaurant.info.id}`}

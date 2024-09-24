@@ -26,7 +26,7 @@ function Header() {
   };
 
   return (
-    <div className="shadow-lg">
+    <div className="shadow-lg slide-down">
       <div className="flex justify-between items-center max-w-[80rem] pl-4 m-auto">
         <div className="img-container flex items-center">
           <img className="w-[6rem] my-[1rem]" src={myImage} alt="logo" />

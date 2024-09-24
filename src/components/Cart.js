@@ -120,8 +120,8 @@ const Cart = () => {
 
   return (
     <div>
-      <div className="flex mx-20 m-auto justify-around p-4">
-        <div className="w-[60%] mt-4">
+      <div className="flex mx-20 m-auto justify-around p-4 slide-right">
+        <div className="w-[60%] mt-4 slide-left">
           {/* Account Information */}
           <div className="flex items-center">
             <img
@@ -173,7 +173,7 @@ const Cart = () => {
           </div>
 
           {/* Delivery Address Form */}
-          <div className="flex items-center">
+          <div className="flex items-center fade-in-second">
             <img
               alt="address"
               src="https://cdn-icons-png.flaticon.com/512/8568/8568340.png"
@@ -215,7 +215,7 @@ const Cart = () => {
           </div>
 
           {/* Payment Details Form */}
-          <div className="flex items-center">
+          <div className="flex items-center fade-in-third">
             <img
               alt="payment"
               src="https://cdn-icons-png.flaticon.com/512/10308/10308445.png"
@@ -252,11 +252,14 @@ const Cart = () => {
                         value={formData.amount}
                         onChange={handleInputChange}
                       />
-                      <button type="submit" className="btn-pay mt-4">
+                      <button
+                        type="submit"
+                        className="px-6 py-2 mt-4 mr-4 shadow-md shadow-gray-400 border border-gray-400 hover:shadow-gray-600 rounded-md hover:bg-black text-gray-600 hover:text-white font-bold"
+                      >
                         Pay Now
                       </button>
                       <button
-                        className="p-2 mt-4 shadow-md shadow-gray-400 hover:shadow-gray-600 border border-gray-400 ml-4 font-bold text-gray-600 rounded-md"
+                        className="p-2 mt-4 shadow-md shadow-gray-400 hover:shadow-gray-600 border border-gray-400 font-bold text-gray-600 rounded-md"
                         type="button"
                         onClick={clearCartHandler}
                       >
@@ -276,7 +279,7 @@ const Cart = () => {
         </div>
 
         {/* Cart Items */}
-        <div className="w-[30%] rounded-md shadow-xl shadow-gray-300 mt-4 h-fit">
+        <div className="w-[30%] rounded-md shadow-xl shadow-gray-300 mt-4 h-fit slide-down">
           <div className="max-h-[300px] overflow-y-auto">
             <MenuItemList items={cartItems} />
           </div>
@@ -312,7 +315,7 @@ const Cart = () => {
             <div className="h-[1px] bg-gray-500 m-2"></div>
             <div className="flex justify-between m-2">
               <p className="font-bold text-gray-600 x-2">TO PAY</p>
-              <p className="text-green-700 mx-2 font-bold">
+              <p className="text-green-700 mx-2 font-bold pulse">
                 ₹ {toPay.toFixed(2)}
               </p>
             </div>
