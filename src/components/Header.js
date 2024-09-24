@@ -17,6 +17,7 @@ function Header() {
   const dispatch = useDispatch();
   const { loggedInUser, setLoggedInUser } = useContext(UserContext);
   const turnLoginBtn = useSelector((store) => store.login.logInBtn);
+  const cartItems = useSelector((store) => store.cart.items);
 
   const loginBtnAction = () => {
     setLoggedInUser("Guest");
@@ -76,13 +77,25 @@ function Header() {
                   isActive ? "text-orange-600" : "text-gray-600"
                 }
               >
-                <FontAwesomeIcon
-                  icon={faCartShopping}
-                  className="text-orange-600"
-                />
-                <span className="pl-2 hover:text-orange-600">Cart</span>
+                <div className="flex items-center">
+                  <div className="relative">
+                    <FontAwesomeIcon
+                      icon={faCartShopping}
+                      className="text-orange-600"
+                    />
+                    {cartItems.length > 0 && (
+                      <p className="px-1 rounded-full absolute -top-2 -right-2 bg-black text-xs text-white">
+                        {cartItems.length}
+                      </p>
+                    )}
+                  </div>
+                  {cartItems.length < 1 && (
+                    <span className="pl-2 hover:text-orange-600">Cart</span>
+                  )}
+                </div>
               </NavLink>
             </li>
+
             <div className="relative group flex flex-col mt-2">
               <button className="mx-6 font-bold text-md text-orange-600">
                 <FontAwesomeIcon icon={faUser} />
@@ -90,8 +103,11 @@ function Header() {
                   {loggedInUser}
                 </span>
               </button>
-              <div className="login-btn text-center font-bold text-md text-white bg-orange-600 rounded-b-lg py-2 px-6 absolute mt-7 mx-3 shadow-lg opacity-0 transform translate-y-[-20px] group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-in-out bg-gradient-to-b from-white via-orange-600/50 to-orange-600">
-                <button onClick={loginBtnAction} className="text-white">
+              <div className="login-btn text-center text-md bg-gray-200 rounded-md py-2 px-6 absolute mt-7 mx-3 shadow-lg shadow-gray-400 opacity-0 transform translate-y-[-20px] group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-in-out">
+                <button
+                  onClick={loginBtnAction}
+                  className="text-gray-600 font-semibold"
+                >
                   {turnLoginBtn}
                 </button>
               </div>
