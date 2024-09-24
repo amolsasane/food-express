@@ -66,6 +66,7 @@ const Cart = () => {
     } else {
       setError("");
       navigate("/orderplaced");
+      dispatch(clearCart());
     }
   };
 
