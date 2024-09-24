@@ -234,8 +234,6 @@ const Cart = () => {
                     <input
                       className="bg-zinc-200 w-full p-2 border rounded-md shadow-inner shadow-gray-400"
                       type="number"
-                      step="0.1"
-                      min="0"
                       name="paymentDetails"
                       placeholder="Card Number"
                       value={formData.paymentDetails}
@@ -247,7 +245,7 @@ const Cart = () => {
                       <input
                         className="bg-zinc-200 p-2 border rounded-md shadow-inner shadow-gray-400 mt-4 w-[8.5rem] mr-4"
                         type="number"
-                        step="0.1"
+                        step="0.01"
                         min="0"
                         name="amount"
                         placeholder="₹ Amount"
