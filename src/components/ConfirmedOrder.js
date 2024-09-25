@@ -24,7 +24,7 @@ const ConfirmedOrder = () => {
   return (
     <div>
       {showLoader ? (
-        <div className="loader fade-in flex items-center justify-center mt-[15rem]">
+        <div className="loader fade-in flex items-center justify-between mt-[15rem]">
           <div className="mx-auto text-center">
             <div className="payment-loader mx-auto mb-6"></div>
             <h1 className="font-semibold text-2xl text-gray-600">
@@ -33,21 +33,23 @@ const ConfirmedOrder = () => {
           </div>
         </div>
       ) : (
-        <div className="paid zoom-in">
-          <img
-            alt="successful"
-            src={successful}
-            className="w-[40rem] mt-[3rem] m-auto pulse"
-          />
-          <h1 className="text-center font-semibold text-3xl text-gray-500">
-            Order Placed!
-          </h1>
-          <p className="text-center mt-2 text-lg text-gray-700">
-            Thank you for your order {loggedInUser}. Your food will arrive
-            shortly.
-          </p>
+        <div className="paid w-full h-[40rem]">
+          <div className="zoom-in">
+            <img
+              alt="successful"
+              src={successful}
+              className="w-[40rem] pt-[2rem] m-auto pulse"
+            />
+            <h1 className="text-center font-semibold text-3xl text-gray-500 mt-2">
+              Order Placed!
+            </h1>
+            <p className="text-center mt-2 text-lg text-gray-800 font-semibold">
+              Thank you for your order {loggedInUser}. Your food will arrive
+              shortly.
+            </p>
+          </div>
           <button
-            className="btn-backhome px-4 py-2 mx-auto flex items-center justify-center mt-4 text-white bg-green-500 hover:bg-green-600"
+            className="btn-backhome px-4 py-2 mx-auto flex items-center justify-center mt-10 text-white bg-green-500 hover:bg-green-600"
             onClick={handleBackToHome}
           >
             <FontAwesomeIcon icon={faCircleArrowLeft} className="mr-2" />
