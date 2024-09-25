@@ -1,6 +1,6 @@
 import myImage from "../utils/images/food-logo.png";
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import UserContext from "../utils/UserContext";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -29,7 +29,9 @@ function Header() {
     <div className="shadow-lg slide-down">
       <div className="flex justify-between items-center max-w-[80rem] pl-4 m-auto">
         <div className="img-container flex items-center">
-          <img className="w-[6rem] my-[1rem]" src={myImage} alt="logo" />
+          <Link to="/">
+            <img className="w-[6rem] my-[1rem]" src={myImage} alt="logo" />
+          </Link>
         </div>
 
         <nav className="">
