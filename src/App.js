@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useState } from "react";
+import React, { lazy } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header.js";
 import Body from "./components/Body.js";
@@ -7,6 +7,7 @@ import Offers from "./components/Offers.js";
 import Cart from "./components/Cart.js";
 import Error from "./components/Error.js";
 import ResMenu from "./components/ResMenu.js";
+import PrivateRoute from "./components/PrivateRoute.js";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import { UserProvider } from "./utils/UserContext.js";
 import { Provider } from "react-redux";
@@ -56,9 +57,9 @@ const appRouter = createBrowserRouter([
       {
         path: "/orderplaced",
         element: (
-          <Suspense fallback={<h1>Loading..</h1>}>
+          <PrivateRoute>
             <ConfirmedOrder />
-          </Suspense>
+          </PrivateRoute>
         ),
       },
     ],

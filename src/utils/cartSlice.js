@@ -5,6 +5,7 @@ const cartSlice = createSlice({
   initialState: {
     items: [],
     ShowToaster: false,
+    hasPlacedOrder: false,
   },
   reducers: {
     addItem: (state, action) => {
@@ -34,8 +35,12 @@ const cartSlice = createSlice({
       state.items = [];
       state.ShowToaster = false;
     },
+    setHasPlacedOrder: (state) => {
+      state.hasPlacedOrder = true;
+    },
   },
 });
 
 export default cartSlice.reducer;
-export const { addItem, removeItem, clearCart } = cartSlice.actions;
+export const { addItem, removeItem, clearCart, setHasPlacedOrder } =
+  cartSlice.actions;

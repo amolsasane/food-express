@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import MenuItemList from "./MenuItemList";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
-import { clearCart } from "../utils/cartSlice";
+import { clearCart, setHasPlacedOrder } from "../utils/cartSlice";
 import Login from "./Login.js";
 import { hideLogin, showLogin, turnToLogin } from "../utils/loginSlice.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -61,6 +61,7 @@ const Cart = () => {
       setError("Please enter card number");
     } else {
       setError("");
+      dispatch(setHasPlacedOrder());
       navigate("/orderplaced");
       dispatch(clearCart());
     }
@@ -245,6 +246,7 @@ const Cart = () => {
                         name="amount"
                         value={Number(toPay).toFixed(2)}
                         onChange={handleInputChange}
+                        disabled
                       />
                       <button
                         type="submit"
