@@ -40,6 +40,9 @@ function Body() {
   const [showVeg, setShowVeg] = useState(false);
   const [showNonVeg, setShowNonVeg] = useState(false);
   const [dataFetched, setDataFetched] = useState(false);
+  const [isTopRatedActive, setIsTopRatedActive] = useState(false);
+  const [isFastDeliveryActive, setIsFastDeliveryActive] = useState(false);
+  const [isLessCostActive, setIsLessCostActive] = useState(false);
 
   const showLoginPage = useSelector((store) => store.login.login);
   const dispatch = useDispatch();
@@ -80,6 +83,10 @@ function Body() {
     setSearchedRestaurents(vegRestaurants);
     setShowVeg(!showVeg);
     setShowNonVeg(false);
+    setIsTopRatedActive(false);
+    setIsFastDeliveryActive(false);
+    setIsLessCostActive(false);
+    setSearchInput("");
 
     if (vegRestaurants.length === 0) {
       setErrorMessage("No vegetarian restaurants found!");
@@ -96,6 +103,10 @@ function Body() {
     setSearchedRestaurents(nonVegRestaurants);
     setShowNonVeg(!showNonVeg);
     setShowVeg(false);
+    setIsTopRatedActive(false);
+    setIsFastDeliveryActive(false);
+    setIsLessCostActive(false);
+    setSearchInput("");
 
     if (nonVegRestaurants.length === 0) {
       setErrorMessage("No non-veg restaurants found!");
@@ -115,6 +126,11 @@ function Body() {
     } else {
       setErrorMessage("");
     }
+
+    setIsTopRatedActive(true);
+    setIsFastDeliveryActive(false);
+    setIsLessCostActive(false);
+    setSearchInput("");
   };
 
   const filterFastDelivery = () => {
@@ -128,6 +144,11 @@ function Body() {
     } else {
       setErrorMessage("");
     }
+
+    setIsTopRatedActive(false);
+    setIsFastDeliveryActive(true);
+    setIsLessCostActive(false);
+    setSearchInput("");
   };
 
   const filterLessCost = () => {
@@ -141,6 +162,11 @@ function Body() {
     } else {
       setErrorMessage("");
     }
+
+    setIsTopRatedActive(false);
+    setIsFastDeliveryActive(false);
+    setIsLessCostActive(true);
+    setSearchInput("");
   };
 
   const searchedRestaurentBtn = (event) => {
@@ -160,6 +186,11 @@ function Body() {
 
     setSearchedRestaurents(filteredRestaurent);
     setHeading("");
+    setIsTopRatedActive(false);
+    setIsFastDeliveryActive(false);
+    setIsLessCostActive(false);
+    setShowNonVeg(false);
+    setShowVeg(false);
   };
 
   const closeLoginPage = () => {
@@ -375,20 +406,26 @@ function Body() {
               </button>
 
               <button
-                className="py-2 px-4 mx-4 rounded-full font-bold m-2 border-gray-400 border text-gray-500 hover:shadow-md hover:shadow-gray-500"
+                className={`py-2 px-4 mx-4 rounded-full font-bold m-2 border-gray-400 border text-gray-500 hover:shadow-md hover:shadow-gray-500 ${
+                  isTopRatedActive ? "bg-gray-200" : "bg-white"
+                } `}
                 onClick={filterTopRated}
               >
                 Top Rated
               </button>
 
               <button
-                className="py-2 px-4 mx-4 rounded-full font-bold m-2 border-gray-400 border text-gray-500 hover:shadow-md hover:shadow-gray-500"
+                className={`py-2 px-4 mx-4 rounded-full font-bold m-2 border-gray-400 border text-gray-500 hover:shadow-md hover:shadow-gray-500  ${
+                  isFastDeliveryActive ? "bg-gray-200" : "bg-white"
+                }`}
                 onClick={filterFastDelivery}
               >
                 Fast Delivery
               </button>
               <button
-                className="py-2 px-4 mx-4 rounded-full font-bold m-2 border-gray-400 border text-gray-500 hover:shadow-md hover:shadow-gray-500"
+                className={`py-2 px-4 mx-4 rounded-full font-bold m-2 border-gray-400 border text-gray-500 hover:shadow-md hover:shadow-gray-500  ${
+                  isLessCostActive ? "bg-gray-200" : "bg-white"
+                }`}
                 onClick={filterLessCost}
               >
                 Less than 200/-
