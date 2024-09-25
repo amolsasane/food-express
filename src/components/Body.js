@@ -371,7 +371,7 @@ function Body() {
           <div className="flex max-w-full mt-6 mb-10 mx-6 justify-between items-center">
             <div className="btn-container">
               <button className="ml-4 mr-6 rounded-full my-2">
-                <div class="toggle-border-main-veg">
+                <div className="toggle-border-main-veg">
                   <input
                     id="one"
                     type="checkbox"
@@ -379,7 +379,7 @@ function Body() {
                     onClick={toggleVeg}
                   />
                   <label for="one">
-                    <div class="handle-main-veg flex justify-center items-center">
+                    <div className="handle-main-veg flex justify-center items-center">
                       <FontAwesomeIcon
                         icon={faCircle}
                         className="text-green-700"
@@ -390,7 +390,7 @@ function Body() {
               </button>
 
               <button className="mx-4 rounded-full my-2">
-                <div class="toggle-border-main-nonveg">
+                <div className="toggle-border-main-nonveg">
                   <input
                     id="two"
                     type="checkbox"
@@ -398,7 +398,7 @@ function Body() {
                     onClick={toggleNonVeg}
                   />
                   <label for="two">
-                    <div class="handle-main-nonveg flex justify-center place-items-center">
+                    <div className="handle-main-nonveg flex justify-center place-items-center">
                       <span className=" text-red-600 text-2xl -mt-1">▲</span>
                     </div>
                   </label>
