@@ -140,7 +140,7 @@ const Cart = () => {
                       className="login-button px-6 pb-2 pt-1 mt-2 mr-4 shadow-md shadow-gray-600"
                       onClick={handleLogin}
                     >
-                      <span class="button-content font-bold">
+                      <span className="button-content font-bold">
                         Login{" "}
                         <span className="pl-1">
                           Now{" "}
