@@ -59,10 +59,6 @@ const Cart = () => {
       setError("Please provide Street/ Area");
     } else if (!formData.paymentDetails) {
       setError("Please enter card number");
-    } else if (!formData.amount) {
-      setError("Please provide the amount");
-    } else if (Number(formData.amount) !== toPay) {
-      setError("Please ender the correct amount");
     } else {
       setError("");
       navigate("/orderplaced");
@@ -246,11 +242,8 @@ const Cart = () => {
                       <input
                         className="bg-zinc-200 p-2 border rounded-md shadow-inner shadow-gray-400 mt-4 w-[8.5rem] mr-4"
                         type="number"
-                        step="0.01"
-                        min="0"
                         name="amount"
-                        placeholder="₹ Amount"
-                        value={formData.amount}
+                        value={Number(toPay).toFixed(2)}
                         onChange={handleInputChange}
                       />
                       <button
@@ -310,7 +303,7 @@ const Cart = () => {
             </div>
             <div className="flex justify-between">
               <p className=" text-gray-600 mx-2">Discount</p>
-              <p className="text-gray-600 mx-2">₹ {discount}</p>
+              <p className="text-gray-600 mx-2">₹ {discount.toFixed(2)}</p>
             </div>
 
             <div className="h-[1px] bg-gray-500 m-2"></div>
