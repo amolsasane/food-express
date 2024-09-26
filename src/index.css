@@ -527,6 +527,19 @@ button {
   }
 }
 
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg); /* Start at 0 degrees */
+  }
+  100% {
+    transform: rotate(360deg); /* Rotate a full circle */
+  }
+}
+
+.rotate {
+  animation: rotate 20s linear infinite; /* Apply the rotating animation infinitely */
+}
+
 .back-and-forth {
   animation: backAndForth 1s infinite ease-in-out; /* Apply the animation infinitely */
 }

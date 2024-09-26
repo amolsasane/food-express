@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Contact = () => {
   return (
     <div className="pt-[5rem] flex justify-around mx-[5rem]">
-      <div className="mt-[6rem] ml-[4rem] w-[40%] slide-left">
+      <div className="mt-[6rem] ml-[4rem] w-[50%] slide-left">
         <h3 className="text-xs font-bold text-orange-600 w-fit bg-orange-200 px-3 py-1 rounded-full">
           Bike Delivery
           <span className="ml-1 text-orange-800">
