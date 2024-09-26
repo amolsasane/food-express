@@ -99,7 +99,7 @@ const Cart = () => {
         <img
           alt="empty-cart"
           src="https://zoe.menu/assets/images/empty_cart.gif"
-          className="w-[27rem]"
+          className="w-[27rem] bounce-down"
         />
         <div className="flex -mt-6">
           <Link to="/">

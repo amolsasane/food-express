@@ -284,7 +284,7 @@ function Body() {
         <div>
           <div className="carousel">
             <div className="flex justify-between">
-              <h1 className="font-bold text-2xl mt-4 text-gray-400">
+              <h1 className="font-bold text-2xl mt-4 text-gray-400 bounce-down">
                 What's on your mind ?
               </h1>
               <div className="mt-6 text-2xl">
