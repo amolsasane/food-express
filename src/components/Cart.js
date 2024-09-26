@@ -95,7 +95,7 @@ const Cart = () => {
 
   if (!cartItems || cartItems.length === 0)
     return (
-      <div className="flex flex-col items-center justify-center p-4 mt-6">
+      <div className="flex flex-col items-center justify-center p-4 pt-[7rem]">
         <img
           alt="empty-cart"
           src="https://zoe.menu/assets/images/empty_cart.gif"
@@ -117,7 +117,7 @@ const Cart = () => {
     );
 
   return (
-    <div>
+    <div className="pt-[5rem]">
       <div className="flex mx-20 m-auto justify-around p-4 slide-right">
         <div className="w-[60%] mt-4 slide-left">
           {/* Account Information */}
@@ -322,7 +322,7 @@ const Cart = () => {
         <>
           <div className="fixed inset-0 bg-black opacity-50 z-10"></div>
           <div
-            className={`login-page fixed z-10 border border-gray-500 shadow-2xl bg-white w-[40vw] right-0 top-0 h-[100vh] rounded-l-xl transition-transform ${
+            className={`mt-[10vh] login-page fixed z-10 border border-gray-500 shadow-2xl bg-white w-[40vw] right-0 top-0 h-[90vh] rounded-l-xl transition-transform ${
               showLoginPage ? "animate-slideInRight" : "animate-slideOutRight"
             }`}
           >

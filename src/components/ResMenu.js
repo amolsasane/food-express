@@ -68,7 +68,7 @@ const ResMenu = () => {
   };
 
   return (
-    <div className="res-menu max-w-[50rem] m-auto slide-down">
+    <div className="res-menu max-w-[50rem] m-auto slide-down pt-[4rem]">
       <h1 className="font-bold text-3xl pt-4 ml-4 text-start mt-[2rem] bounce-down">
         {name}
       </h1>
@@ -217,13 +217,8 @@ const ResMenu = () => {
         </div>
         <div className="h-[1px] bg-gray-400 mx-4 opacity-50"></div>
         <div className="bg-gray-200 flex justify-center">
-          <Link to="/">
-            <h1 className="rounded-lg border border-gray-500 text-gray-500 py-2 px-4 mt-10 h-fit font-bold mr-6">
-              FoodExpress
-            </h1>
-          </Link>
           <button
-            className="rounded-lg bg-black text-white py-2 px-4 mt-10 h-fit font-bold"
+            className="rounded-lg border border-gray-500 text-gray-500 py-2 px-4 mt-10 h-fit font-bold"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
             Go to top <FontAwesomeIcon icon={faArrowUp} className="ml-1" />
@@ -236,7 +231,9 @@ const ResMenu = () => {
 
       {isVisible && (
         <div
-          className={`toaster ${isVisible ? "toaster-enter" : "toaster-exit"}`}
+          className={`toaster ${
+            isVisible ? "toaster-enter" : "toaster-exit"
+          } rounded-t-xl`}
         >
           <h1>
             {cartItems.length} {cartItems.length > 1 ? "items" : "item"} added

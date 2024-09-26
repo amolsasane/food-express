@@ -22,7 +22,7 @@ const ConfirmedOrder = () => {
   };
 
   return (
-    <div>
+    <div className="pt-[5rem]">
       {showLoader ? (
         <div className="loader fade-in flex items-center justify-between mt-[15rem]">
           <div className="mx-auto text-center">

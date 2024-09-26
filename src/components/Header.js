@@ -1,4 +1,3 @@
-import myImage from "../utils/images/food-logo.png";
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import UserContext from "../utils/UserContext";
@@ -7,9 +6,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUser,
   faCartShopping,
-  faHeadphones,
   faHouse,
   faGift,
+  faHeart,
 } from "@fortawesome/free-solid-svg-icons";
 import { showLogin, turnToLogin } from "../utils/loginSlice";
 
@@ -26,11 +25,11 @@ function Header() {
   };
 
   return (
-    <div className="shadow-lg slide-down">
+    <div className="h-[10vh] fixed bg-white shadow-lg block z-30 w-full slide-down">
       <div className="flex justify-between items-center max-w-[80rem] pl-4 m-auto">
         <div className="img-container flex items-center">
           <Link to="/">
-            <img className="w-[6rem] my-[1rem]" src={myImage} alt="logo" />
+            <h1 className="font-bold text-3xl text-orange-600">FoodExpress</h1>
           </Link>
         </div>
 
@@ -43,7 +42,7 @@ function Header() {
                   isActive ? "text-orange-600" : "text-gray-600"
                 }
               >
-                <FontAwesomeIcon icon={faHouse} className="text-orange-600" />
+                <FontAwesomeIcon icon={faHouse} />
                 <span className="pl-2 hover:text-orange-600">Home</span>
               </NavLink>
             </li>
@@ -54,7 +53,7 @@ function Header() {
                   isActive ? "text-orange-600" : "text-gray-600"
                 }
               >
-                <FontAwesomeIcon icon={faGift} className="text-orange-600" />
+                <FontAwesomeIcon icon={faGift} />
                 <span className="pl-2 hover:text-orange-600">Offers</span>
               </NavLink>
             </li>
@@ -65,11 +64,8 @@ function Header() {
                   isActive ? "text-orange-600" : "text-gray-600"
                 }
               >
-                <FontAwesomeIcon
-                  icon={faHeadphones}
-                  className="text-orange-600"
-                />
-                <span className="pl-2 hover:text-orange-600">Contact</span>
+                <FontAwesomeIcon icon={faHeart} />
+                <span className="pl-2 hover:text-orange-600">About Us</span>
               </NavLink>
             </li>
             <li className="p-2 mx-6 font-bold text-md text-orange-600">
@@ -81,10 +77,7 @@ function Header() {
               >
                 <div className="flex items-center">
                   <div className="relative">
-                    <FontAwesomeIcon
-                      icon={faCartShopping}
-                      className="text-orange-600"
-                    />
+                    <FontAwesomeIcon icon={faCartShopping} />
                     {cartItems.length > 0 && (
                       <p className="px-1 rounded-full absolute -top-2 -right-2 bg-black text-xs text-white">
                         {cartItems.length}
@@ -99,7 +92,7 @@ function Header() {
             </li>
 
             <div className="relative group flex flex-col mt-2">
-              <button className="mx-6 font-bold text-md text-orange-600">
+              <button className="mx-6 font-bold text-md">
                 <FontAwesomeIcon icon={faUser} />
                 <span className="pl-2 text-gray-600 hover:text-orange-600">
                   {loggedInUser}
