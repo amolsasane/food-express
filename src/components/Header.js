@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import UserContext from "../utils/UserContext";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,11 +18,23 @@ function Header() {
   const turnLoginBtn = useSelector((store) => store.login.logInBtn);
   const cartItems = useSelector((store) => store.cart.items);
 
+  const [bounce, setBounce] = useState(false);
+
   const loginBtnAction = () => {
     setLoggedInUser("Guest");
     dispatch(showLogin("Login"));
     dispatch(turnToLogin());
   };
+
+  // Effect to trigger bounce animation on cart item length change
+  useEffect(() => {
+    if (cartItems.length > 0) {
+      setBounce(true);
+      // Reset bounce state after the animation duration
+      const timer = setTimeout(() => setBounce(false), 300); // Adjust duration to match your CSS animation timing
+      return () => clearTimeout(timer);
+    }
+  }, [cartItems.length]);
 
   return (
     <div className="h-[10vh] fixed bg-white shadow-lg block z-30 w-full slide-down">
@@ -76,13 +88,13 @@ function Header() {
                 }
               >
                 <div className="flex items-center">
-                  <div className="relative">
+                  <div className={`relative ${bounce ? "bounce-down" : ""}`}>
                     <FontAwesomeIcon icon={faCartShopping} />
-                    {
+                    {cartItems.length > 0 && (
                       <p className="px-1 rounded-full absolute -top-2 -right-2 bg-orange-600 text-xs text-white">
                         {cartItems.length}
                       </p>
-                    }
+                    )}
                   </div>
                   {cartItems.length < 1 && (
                     <span className="pl-2 hover:text-orange-600">Cart</span>
