@@ -13,7 +13,7 @@ const Contact = () => {
             <FontAwesomeIcon icon={faMotorcycle} />
           </span>
         </h3>
-        <h1 className="text-[3rem] my-4 font-semibold">
+        <h1 className="text-[3rem] my-4 font-semibold bounce-down">
           We offer the{" "}
           <span className="text-orange-500 saturate-200">
             Fastest Food Delivery

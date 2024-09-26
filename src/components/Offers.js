@@ -7,14 +7,14 @@ const Offers = () => {
   return (
     <div className="pt-[5rem] flex justify-left overflow-hidden">
       <div className="mt-[2rem] ml-[10rem] w-[60%] slide-left">
-        <h1 className="text-[3rem] mt-4 font-semibold text-orange-500 saturate-200">
+        <h1 className="text-[3rem] mt-4 font-semibold text-orange-500 saturate-200 bounce-down">
           Hungry for Deals?
         </h1>
         <h1 className="text-[2rem] mb-4 font-semibold">
           Don't Miss Out on These Tasty Deals.
         </h1>
         <div className="flex">
-          <div className="mb-[2rem] mr-[2rem]">
+          <div className="mb-[2rem] mr-[2rem] zoom-in">
             <img
               className="w-[15rem] h-[17rem] rounded-2xl"
               alt="discount"
@@ -23,7 +23,7 @@ const Offers = () => {
           </div>
           <div className="mb-[2rem]">
             <img
-              className="w-[15rem] h-[17rem] rounded-2xl"
+              className="w-[15rem] h-[17rem] rounded-2xl zoom-in"
               alt="discount"
               src="https://png.pngtree.com/png-clipart/20210309/original/pngtree-free-delivery-food-and-drink-template-png-image_5819977.jpg"
             />
