@@ -45,9 +45,18 @@ function Body() {
   const [isLessCostActive, setIsLessCostActive] = useState(false);
 
   const showLoginPage = useSelector((store) => store.login.login);
+
   const dispatch = useDispatch();
 
   const FreeDelivery = WithLabel(ResCard);
+
+  const errorRef = useRef(null);
+
+  useEffect(() => {
+    if (errorMessage) {
+      errorRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, [errorMessage]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -119,54 +128,61 @@ function Body() {
     const topRatedRes = restaurantsList.filter(
       (res) => res.info.avgRating > 4.2
     );
-    setSearchedRestaurents(topRatedRes);
+
+    setIsTopRatedActive(!isTopRatedActive);
+    setIsFastDeliveryActive(false);
+    setIsLessCostActive(false);
+    setSearchInput("");
+    isTopRatedActive
+      ? setSearchedRestaurents(restaurantsList)
+      : setSearchedRestaurents(topRatedRes);
 
     if (topRatedRes.length === 0) {
       setErrorMessage("No restaurants found!");
     } else {
       setErrorMessage("");
     }
-
-    setIsTopRatedActive(true);
-    setIsFastDeliveryActive(false);
-    setIsLessCostActive(false);
-    setSearchInput("");
   };
 
   const filterFastDelivery = () => {
-    const topRatedRes = restaurantsList.filter(
+    const fastDelRes = restaurantsList.filter(
       (res) => res.info.avgRating > 4.5
     );
-    setSearchedRestaurents(topRatedRes);
 
-    if (topRatedRes.length === 0) {
+    setIsTopRatedActive(false);
+    setIsFastDeliveryActive(!isFastDeliveryActive);
+    setIsLessCostActive(false);
+    setSearchInput("");
+
+    isFastDeliveryActive
+      ? setSearchedRestaurents(restaurantsList)
+      : setSearchedRestaurents(fastDelRes);
+
+    if (fastDelRes.length === 0) {
       setErrorMessage("No restaurants found!");
     } else {
       setErrorMessage("");
     }
-
-    setIsTopRatedActive(false);
-    setIsFastDeliveryActive(true);
-    setIsLessCostActive(false);
-    setSearchInput("");
   };
 
   const filterLessCost = () => {
-    const topRatedRes = restaurantsList.filter(
+    const lesscostRes = restaurantsList.filter(
       (res) => res.info.avgRating > 4.6
     );
-    setSearchedRestaurents(topRatedRes);
+    setIsTopRatedActive(false);
+    setIsFastDeliveryActive(false);
+    setIsLessCostActive(!isLessCostActive);
+    setSearchInput("");
 
-    if (topRatedRes.length === 0) {
+    isLessCostActive
+      ? setSearchedRestaurents(restaurantsList)
+      : setSearchedRestaurents(lesscostRes);
+
+    if (lesscostRes.length === 0) {
       setErrorMessage("No restaurants found!");
     } else {
       setErrorMessage("");
     }
-
-    setIsTopRatedActive(false);
-    setIsFastDeliveryActive(false);
-    setIsLessCostActive(true);
-    setSearchInput("");
   };
 
   const searchedRestaurentBtn = (event) => {
@@ -259,16 +275,18 @@ function Body() {
   };
 
   return restaurantsList.length === 0 ? (
-    <div className="shimmer-container">
+    <div className="shimmer-container pt-[6rem]">
       <Shimmer />
     </div>
   ) : (
     <div className="fade-in">
-      <div className="main max-w-[70rem] m-auto flex pb-10">
+      <div className="main max-w-[70rem] m-auto flex pb-10 pt-[6rem]">
         <div>
           <div className="carousel">
             <div className="flex justify-between">
-              <h1 className="font-bold text-2xl mt-4">What's on your mind?</h1>
+              <h1 className="font-bold text-2xl mt-4 text-gray-400">
+                What's on your mind ?
+              </h1>
               <div className="mt-6 text-2xl">
                 <button
                   className="px-3 bg-gray-200 rounded-full mx-2 hover:bg-orange-200 text-gray-600 hover:text-orange-600"
@@ -291,73 +309,73 @@ function Body() {
             >
               <div className="flex" style={{ minWidth: "150%" }}>
                 <img
-                  className="w-[10rem] mx-4 cursor-pointer"
+                  className="w-[10rem] mx-4 cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
                   src={BURGER_LINK}
                   alt="Burger"
                   onClick={() => handleImageClick("Burger")}
                 />
                 <img
-                  className="w-[10rem] mx-4 cursor-pointer"
+                  className="w-[10rem] mx-4 cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
                   src={ICECREAM_LINK}
                   alt="Ice Cream"
                   onClick={() => handleImageClick("Ice Cream")}
                 />
                 <img
-                  className="w-[10rem] mx-4 cursor-pointer"
+                  className="w-[10rem] mx-4 cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
                   src={CAKE_LINK}
                   alt="Cake"
                   onClick={() => handleImageClick("Cake")}
                 />
                 <img
-                  className="w-[10rem] mx-4 cursor-pointer"
+                  className="w-[10rem] mx-4 cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
                   src={ROLLS_LINK}
                   alt="Rolls"
                   onClick={() => handleImageClick("Rolls")}
                 />
                 <img
-                  className="w-[10rem] mx-4 cursor-pointer"
+                  className="w-[10rem] mx-4 cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
                   src={PIZZA_LINK}
                   alt="Pizza"
                   onClick={() => handleImageClick("Pizza")}
                 />
                 <img
-                  className="w-[10rem] mx-4 cursor-pointer"
+                  className="w-[10rem] mx-4 cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
                   src={NOODLES_LINK}
                   alt="Chinese"
                   onClick={() => handleImageClick("Chinese")}
                 />
                 <img
-                  className="w-[10rem] mx-4 cursor-pointer"
+                  className="w-[10rem] mx-4 cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
                   src={BIRYANI_LINK}
                   alt="Biryani"
                   onClick={() => handleImageClick("Biryani")}
                 />
                 <img
-                  className="w-[10rem] mx-4 cursor-pointer"
+                  className="w-[10rem] mx-4 cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
                   src={TEA_LINK}
                   alt="Tea"
                   onClick={() => handleImageClick("Tea")}
                 />
                 <img
-                  className="w-[10rem] mx-4 cursor-pointer"
+                  className="w-[10rem] mx-4 cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
                   src={COFFEE_LINK}
                   alt="Coffee"
                   onClick={() => handleImageClick("Coffee")}
                 />
                 <img
-                  className="w-[10rem] mx-4 cursor-pointer"
+                  className="w-[10rem] mx-4 cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
                   src={KHICHDI_LINK}
                   alt="Khichdi"
                   onClick={() => handleImageClick("Khichdi")}
                 />
                 <img
-                  className="w-[10rem] mx-4 cursor-pointer"
+                  className="w-[10rem] mx-4 cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
                   src={DESSERTS_LINK}
                   alt="Desserts"
                   onClick={() => handleImageClick("Desserts")}
                 />
                 <img
-                  className="w-[10rem] mx-4 cursor-pointer"
+                  className="w-[10rem] mx-4 cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
                   src={RASGULLA_LINK}
                   alt="Rasgulla"
                   onClick={() => handleImageClick("Rasgulla")}
@@ -451,7 +469,7 @@ function Body() {
           </div>
 
           {errorMessage && (
-            <div className="flex flex-col justify-center">
+            <div className="flex flex-col justify-center" ref={errorRef}>
               <img
                 alt="err"
                 src="https://cdn.dribbble.com/userupload/10454226/file/original-cfde1277cf7a96bc6ec7c72efa0b1b49.png?resize=400x300&vertical=center"
@@ -474,7 +492,7 @@ function Body() {
               <Link
                 to={`/restaurant/${restaurant.info.id}`}
                 key={restaurant.info.id}
-                className="transition-transform duration-300 ease-in-out hover:transform hover:scale-90"
+                className="transform transition-transform duration-500 ease-in-out hover:scale-90"
               >
                 {restaurant.info.avgRating > 4.2 ? (
                   <FreeDelivery resData={restaurant} label={"Free Delivery"} />
@@ -490,7 +508,7 @@ function Body() {
           <>
             <div className="fixed inset-0 bg-black opacity-50 z-10"></div>
             <div
-              className={`login-page fixed z-10 border border-gray-500 shadow-2xl bg-white w-[40vw] right-0 top-0 h-[100vh] rounded-l-xl transition-transform ${
+              className={`mt-[10vh] login-page fixed z-10 border border-gray-500 shadow-2xl bg-white w-[40vw] right-0 top-0 h-[90vh] rounded-l-xl transition-transform ${
                 showLoginPage ? "animate-slideInRight" : "animate-slideOutRight"
               }`}
             >
