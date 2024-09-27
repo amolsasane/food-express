@@ -26,12 +26,10 @@ function Header() {
     dispatch(turnToLogin());
   };
 
-  // Effect to trigger bounce animation on cart item length change
   useEffect(() => {
     if (cartItems.length > 0) {
       setBounce(true);
-      // Reset bounce state after the animation duration
-      const timer = setTimeout(() => setBounce(false), 300); // Adjust duration to match your CSS animation timing
+      const timer = setTimeout(() => setBounce(false), 300);
       return () => clearTimeout(timer);
     }
   }, [cartItems.length]);
@@ -41,7 +39,9 @@ function Header() {
       <div className="flex justify-between items-center max-w-[80rem] pl-4 m-auto">
         <div className="img-container flex items-center">
           <Link to="/">
-            <h1 className="font-bold text-3xl text-orange-600">FoodExpress</h1>
+            <h1 className="logo font-bold text-3xl text-orange-600">
+              food<span className="text-black">express</span>
+            </h1>
           </Link>
         </div>
 
