@@ -28,12 +28,12 @@ const Contact = () => {
           😋
         </p>
         <Link to="/">
-          <button className="shadow-md shadow-gray-500 px-4 py-2 font-bold text-white bg-orange-500 rounded-full text-sm mr-4 transform transition-transform duration-500 ease-in-out hover:scale-90">
+          <button className="shadow-md shadow-gray-500 px-4 py-2 font-bold text-white bg-black rounded-full text-sm mr-4 transform transition-transform duration-500 ease-in-out hover:scale-90">
             Order Now
           </button>
         </Link>
         <Link to="/">
-          <button className="shadow-md shadow-gray-400 px-4 py-2 font-bold text-orange-600 border border-orange-700 rounded-full text-sm transform transition-transform duration-500 ease-in-out hover:scale-90">
+          <button className="shadow-md shadow-gray-400 px-4 py-2 font-bold text-white bg-orange-500 saturate-200 rounded-full text-sm transform transition-transform duration-500 ease-in-out hover:scale-90">
             All foods <FontAwesomeIcon icon={faArrowRight} className="ml-1" />
           </button>
         </Link>
