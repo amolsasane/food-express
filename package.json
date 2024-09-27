@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Namaste React Bootcamp",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html",
+    "start": "parcel public/index.html",
+    "build": "parcel build public/index.html",
     "test": "jest",
     "watch-test": "jest --watch"
   },
