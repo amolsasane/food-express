@@ -16,7 +16,6 @@ import { useSelector } from "react-redux";
 
 const ResMenu = () => {
   const [showIndex, setShowIndex] = useState(0);
-  const [errorMessage] = useState("");
   const [showVeg, setShowVeg] = useState(false);
   const [showNonVeg, setShowNonVeg] = useState(false);
   const [showBestseller, setShowBestseller] = useState(false);
@@ -168,19 +167,6 @@ const ResMenu = () => {
       </div>
 
       <div className="h-[1px] bg-gray-300 w-full"></div>
-
-      {errorMessage && (
-        <div className="flex flex-col justify-center">
-          <img
-            alt="err"
-            src="https://cdn.dribbble.com/userupload/10454226/file/original-cfde1277cf7a96bc6ec7c72efa0b1b49.png?resize=400x300&vertical=center"
-            className="mx-auto"
-          />
-          <h1 className="error-message text-red-500 text-center mb-10 text-3xl font-bold">
-            {errorMessage}
-          </h1>
-        </div>
-      )}
 
       {catagories.map((catagory, index) => (
         <MenuCatagory
