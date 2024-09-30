@@ -68,8 +68,8 @@ const ResMenu = () => {
   };
 
   return (
-    <div className="res-menu max-w-[50rem] m-auto slide-down pt-[4rem]">
-      <h1 className="font-bold text-3xl pt-4 ml-4 text-start mt-[2rem] bounce-down">
+    <div className="res-menu max-w-[50rem] m-auto slide-down pt-[4rem] mx-4 md:mx-auto">
+      <h1 className="font-bold text-2xl md:text-3xl pt-4 ml-4 text-start mt-[2rem] bounce-down">
         {name}
       </h1>
       <div className="bg-gray-300 w-full h-[14rem] my-2 rounded-b-[2rem] bg-gradient-to-b from-white p-4 slide-down">
@@ -233,7 +233,7 @@ const ResMenu = () => {
         <div
           className={`toaster ${
             isVisible ? "toaster-enter" : "toaster-exit"
-          } rounded-t-xl`}
+          } rounded-t-xl md:w-[50rem] w-[90vw]`}
         >
           <h1>
             {cartItems.length} {cartItems.length > 1 ? "items" : "item"} added

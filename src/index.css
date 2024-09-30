@@ -260,7 +260,6 @@ button {
 .toaster {
   position: fixed;
   bottom: 0;
-  width: 50rem;
   background-color: #f97316;
   color: white;
   font-weight: bold;
