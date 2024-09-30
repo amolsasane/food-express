@@ -275,7 +275,7 @@ function Body() {
   };
 
   return restaurantsList.length === 0 ? (
-    <div className="shimmer-container pt-[6rem]">
+    <div className="shimmer-container pt-[4rem] md:pt-[6rem]">
       <Shimmer />
     </div>
   ) : (
@@ -284,18 +284,18 @@ function Body() {
         <div>
           <div className="carousel">
             <div className="flex justify-between">
-              <h1 className="font-bold text-2xl mt-4 text-gray-400 bounce-down">
+              <h1 className="font-bold text-xl md:text-2xl mt-4 ml-4 md:ml-0 text-gray-400 bounce-down">
                 What's on your mind ?
               </h1>
-              <div className="mt-6 text-2xl">
+              <div className="mt-4 md:mt-6 text-2xl">
                 <button
-                  className="px-3 bg-gray-200 rounded-full mx-2 hover:bg-orange-200 text-gray-600 hover:text-orange-600"
+                  className="px-3 bg-gray-200 rounded-full mx-2 hover:bg-orange-200 text-gray-600 hover:text-orange-600 text-[1rem] md:text-2xl"
                   onClick={handleScrollLeft}
                 >
                   <FontAwesomeIcon icon={faArrowLeft} />
                 </button>
                 <button
-                  className="px-3 bg-gray-200 rounded-full mx-2 hover:bg-orange-200 text-gray-600 hover:text-orange-600"
+                  className="px-3 bg-gray-200 rounded-full mx-2 hover:bg-orange-200 text-gray-600 hover:text-orange-600 text-[1rem] md:text-2xl"
                   onClick={handleScrollRight}
                 >
                   <FontAwesomeIcon icon={faArrowRight} />
@@ -303,79 +303,78 @@ function Body() {
               </div>
             </div>
             <div
-              className="flex overflow-x-scroll scrollbar-hide slide-right"
-              style={{ width: "100%" }}
+              className="flex overflow-x-scroll scrollbar-hide slide-right w-full"
               ref={carouselRef}
             >
-              <div className="flex" style={{ minWidth: "150%" }}>
+              <div className="flex min-w-[150%]">
                 <img
-                  className="w-[10rem] mx-4 cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
+                  className="w-[10rem] h-[10rem] md:h-auto mx-1 md:mx-4 cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
                   src={BURGER_LINK}
                   alt="Burger"
                   onClick={() => handleImageClick("Burger")}
                 />
                 <img
-                  className="w-[10rem] mx-4 cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
+                  className="w-[10rem] mx-4 h-[10rem] md:h-auto cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
                   src={ICECREAM_LINK}
                   alt="Ice Cream"
                   onClick={() => handleImageClick("Ice Cream")}
                 />
                 <img
-                  className="w-[10rem] mx-4 cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
+                  className="w-[10rem] mx-4 h-[10rem] md:h-auto cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
                   src={CAKE_LINK}
                   alt="Cake"
                   onClick={() => handleImageClick("Cake")}
                 />
                 <img
-                  className="w-[10rem] mx-4 cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
+                  className="w-[10rem] mx-4 h-[10rem] md:h-auto cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
                   src={ROLLS_LINK}
                   alt="Rolls"
                   onClick={() => handleImageClick("Rolls")}
                 />
                 <img
-                  className="w-[10rem] mx-4 cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
+                  className="w-[10rem] mx-4 h-[10rem] md:h-auto cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
                   src={PIZZA_LINK}
                   alt="Pizza"
                   onClick={() => handleImageClick("Pizza")}
                 />
                 <img
-                  className="w-[10rem] mx-4 cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
+                  className="w-[10rem] mx-4 h-[10rem] md:h-auto cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
                   src={NOODLES_LINK}
                   alt="Chinese"
                   onClick={() => handleImageClick("Chinese")}
                 />
                 <img
-                  className="w-[10rem] mx-4 cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
+                  className="w-[10rem] mx-4 h-[10rem] md:h-auto cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
                   src={BIRYANI_LINK}
                   alt="Biryani"
                   onClick={() => handleImageClick("Biryani")}
                 />
                 <img
-                  className="w-[10rem] mx-4 cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
+                  className="w-[10rem] mx-4 h-[10rem] md:h-auto cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
                   src={TEA_LINK}
                   alt="Tea"
                   onClick={() => handleImageClick("Tea")}
                 />
                 <img
-                  className="w-[10rem] mx-4 cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
+                  className="w-[10rem] mx-4 h-[10rem] md:h-auto cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
                   src={COFFEE_LINK}
                   alt="Coffee"
                   onClick={() => handleImageClick("Coffee")}
                 />
                 <img
-                  className="w-[10rem] mx-4 cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
+                  className="w-[10rem] mx-4 h-[10rem] md:h-auto cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
                   src={KHICHDI_LINK}
                   alt="Khichdi"
                   onClick={() => handleImageClick("Khichdi")}
                 />
                 <img
-                  className="w-[10rem] mx-4 cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
+                  className="w-[10rem] mx-4 h-[10rem] md:h-auto cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
                   src={DESSERTS_LINK}
                   alt="Desserts"
                   onClick={() => handleImageClick("Desserts")}
                 />
                 <img
-                  className="w-[10rem] mx-4 cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
+                  className="w-[10rem] mx-4 h-[10rem] md:h-auto cursor-pointer transform transition-transform duration-500 ease-in-out hover:scale-90"
                   src={RASGULLA_LINK}
                   alt="Rasgulla"
                   onClick={() => handleImageClick("Rasgulla")}
@@ -384,7 +383,7 @@ function Body() {
             </div>
           </div>
 
-          <div className="h-[2px] mt-8 bg-gray-200"></div>
+          <div className="h-[2px] md:mt-8 mt-4 bg-gray-200"></div>
 
           <div className="flex max-w-full mt-6 mb-10 mx-6 justify-between items-center">
             <div className="btn-container">
@@ -424,7 +423,7 @@ function Body() {
               </button>
 
               <button
-                className={`py-2 px-4 mx-4 rounded-full font-bold m-2 border-gray-400 border text-gray-500 hover:shadow-md hover:shadow-gray-500 ${
+                className={`hidden md:inline py-2 px-4 mx-4 rounded-full font-bold m-2 border-gray-400 border text-gray-500 hover:shadow-md hover:shadow-gray-500 ${
                   isTopRatedActive ? "bg-gray-200" : "bg-white"
                 } `}
                 onClick={filterTopRated}
@@ -433,7 +432,7 @@ function Body() {
               </button>
 
               <button
-                className={`py-2 px-4 mx-4 rounded-full font-bold m-2 border-gray-400 border text-gray-500 hover:shadow-md hover:shadow-gray-500  ${
+                className={`hidden md:inline py-2 px-4 mx-4 rounded-full font-bold m-2 border-gray-400 border text-gray-500 hover:shadow-md hover:shadow-gray-500  ${
                   isFastDeliveryActive ? "bg-gray-200" : "bg-white"
                 }`}
                 onClick={filterFastDelivery}
@@ -441,7 +440,7 @@ function Body() {
                 Fast Delivery
               </button>
               <button
-                className={`py-2 px-4 mx-4 rounded-full font-bold m-2 border-gray-400 border text-gray-500 hover:shadow-md hover:shadow-gray-500  ${
+                className={`hidden md:inline py-2 px-4 mx-4 rounded-full font-bold m-2 border-gray-400 border text-gray-500 hover:shadow-md hover:shadow-gray-500  ${
                   isLessCostActive ? "bg-gray-200" : "bg-white"
                 }`}
                 onClick={filterLessCost}
@@ -454,7 +453,7 @@ function Body() {
               <input
                 data-testId="searchInput"
                 placeholder="Search for restaurants and food"
-                className="bg-gray-100 border-gray-300 py-[6px] px-[1rem] border-2 rounded-tl-full rounded-bl-full w-[17rem]"
+                className="bg-gray-100 border-gray-300 py-[6px] px-[1rem] border-2 rounded-tl-full rounded-bl-full w-[10rem] md:w-[17rem]"
                 type="text"
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
@@ -475,7 +474,7 @@ function Body() {
                 src="https://cdn.dribbble.com/userupload/10454226/file/original-cfde1277cf7a96bc6ec7c72efa0b1b49.png?resize=400x300&vertical=center"
                 className="mx-auto"
               />
-              <h1 className="error-message text-red-500 text-center mb-10 text-3xl font-bold">
+              <h1 className="error-message text-red-500 text-center mb-10 md:text-3xl text-xl font-bold">
                 {errorMessage}
               </h1>
             </div>

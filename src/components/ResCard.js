@@ -4,8 +4,12 @@ function ResCard(props) {
   const { resData } = props;
   const { name, locality, cuisines, avgRating, cloudinaryImageId, sla } =
     resData.info;
+
   return (
-    <div data-testid="resCard" className="w-[17rem] p-4 mb-6 rounded-2xl">
+    <div
+      data-testid="resCard"
+      className="w-[12rem] md:w-[17rem] p-4 mb-6 rounded-2xl"
+    >
       <img
         className="rounded-2xl w-[700px] h-[150px] object-cover"
         alt="Restaurant Image"
