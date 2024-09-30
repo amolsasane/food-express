@@ -1,4 +1,4 @@
-import React, { lazy } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header.js";
 import Body from "./components/Body.js";
@@ -13,8 +13,6 @@ import { UserProvider } from "./utils/UserContext.js";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore.js";
 import ConfirmedOrder from "./components/ConfirmedOrder.js";
-
-const Grocery = lazy(() => import("./components/Grocery.js"));
 
 function MyApp() {
   return (
