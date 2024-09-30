@@ -34,16 +34,16 @@ const ConfirmedOrder = () => {
         </div>
       ) : (
         <div className="paid w-full h-[40rem]">
-          <div className="zoom-in">
+          <div className="zoom-in mt-10 md:mt-0">
             <img
               alt="successful"
               src={successful}
-              className="w-[40rem] pt-[2rem] m-auto pulse"
+              className="md:w-[40rem] w-[25rem] pt-[2rem] m-auto pulse"
             />
-            <h1 className="text-center font-semibold text-3xl text-gray-500 mt-2">
+            <h1 className="text-center font-semibold md:text-3xl text-2xl text-gray-500 mt-2">
               Order Placed!
             </h1>
-            <p className="text-center mt-2 text-lg text-gray-800 font-semibold">
+            <p className="text-center mt-2 text-sm md:text-lg text-gray-800 font-semibold">
               Thank you for your order {loggedInUser}. Your food will arrive
               shortly.
             </p>
