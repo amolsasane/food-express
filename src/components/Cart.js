@@ -95,20 +95,20 @@ const Cart = () => {
 
   if (!cartItems || cartItems.length === 0)
     return (
-      <div className="flex flex-col items-center justify-center p-4 pt-[7rem]">
+      <div className="flex flex-col items-center justify-center p-4 pt-[12rem] md:pt-[7rem]">
         <img
           alt="empty-cart"
           src="https://zoe.menu/assets/images/empty_cart.gif"
-          className="w-[27rem] bounce-down"
+          className="w-[20rem] md:w-[27rem] bounce-down"
         />
         <div className="flex -mt-6">
           <Link to="/">
-            <button className="btn-bounce delay-1 bg-black text-white font-bold py-2 px-3 rounded-lg shadow-md shadow-gray-500 mr-6">
+            <button className="btn-bounce delay-1 bg-black text-white font-bold py-2 px-3 rounded-lg shadow-md shadow-gray-500 text-sm md:text-lg mr-6">
               Add items to cart
             </button>
           </Link>
           <Link to="/">
-            <button className="btn-bounce delay-2 bg-orange-600 text-white font-bold py-2 px-3 rounded-lg shadow-md shadow-gray-400">
+            <button className="btn-bounce delay-2 bg-orange-600 text-white font-bold py-2 px-3 rounded-lg shadow-md shadow-gray-400 text-sm md:text-lg">
               Continue Shopping
             </button>
           </Link>
