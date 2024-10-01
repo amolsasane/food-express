@@ -1,6 +1,6 @@
 const Shimmer = () => {
   return (
-    <div className="mx-[1rem] md:mx-[10rem]">
+    <div className="mx-[1rem] lg:mx-[10rem]">
       <div className="flex justify-between my-[2rem]">
         <div className="flex">
           <div className="bg-neutral-400/50 w-[10rem] md:w-[15rem] h-6 md:h-8 shimmer rounded-2xl"></div>
@@ -63,7 +63,7 @@ const Shimmer = () => {
             <div className="bg-neutral-400/50 w-2/4 h-4 shimmer rounded-md"></div>
           </div>
         </div>
-        <div className="shimmer-card hidden mx-6 md:flex flex-col bg-neutral-100 w-56 h-64 rounded-xl p-4 gap-4">
+        <div className="shimmer-card hidden mx-6 lg:flex flex-col bg-neutral-100 w-56 h-64 rounded-xl p-4 gap-4">
           <div className="bg-neutral-400/50 w-full h-32 shimmer rounded-md"></div>
           <div className="flex flex-col gap-2">
             <div className="bg-neutral-400/50 w-full h-4 shimmer rounded-md"></div>
@@ -72,7 +72,7 @@ const Shimmer = () => {
             <div className="bg-neutral-400/50 w-2/4 h-4 shimmer rounded-md"></div>
           </div>
         </div>
-        <div className="shimmer-card hidden mx-6 md:flex flex-col bg-neutral-100 w-56 h-64 rounded-xl p-4 gap-4">
+        <div className="shimmer-card hidden mx-6 lg:flex flex-col bg-neutral-100 w-56 h-64 rounded-xl p-4 gap-4">
           <div className="bg-neutral-400/50 w-full h-32 shimmer rounded-md"></div>
           <div className="flex flex-col gap-2">
             <div className="bg-neutral-400/50 w-full h-4 shimmer rounded-md"></div>
