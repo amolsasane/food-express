@@ -12,6 +12,7 @@ import {
   faMagnifyingGlass,
   faChevronLeft,
   faCircle,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { hideLogin } from "../utils/loginSlice.js";
@@ -516,7 +517,12 @@ function Body() {
                   className="text-3xl text-gray-300 hover:text-orange-600"
                   onClick={closeLoginPage}
                 >
-                  <FontAwesomeIcon icon={faChevronLeft} />
+                  <span className="hidden lg:block">
+                    <FontAwesomeIcon icon={faChevronLeft} />
+                  </span>
+                  <span className="lg:hidden">
+                    <FontAwesomeIcon icon={faXmark} />
+                  </span>
                 </button>
                 <Login />
               </div>

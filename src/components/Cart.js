@@ -6,7 +6,11 @@ import { clearCart, setHasPlacedOrder } from "../utils/cartSlice";
 import Login from "./Login.js";
 import { hideLogin, showLogin, turnToLogin } from "../utils/loginSlice.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleRight, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import {
+  faAngleRight,
+  faChevronLeft,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
 import UserContext from "../utils/UserContext.js";
 
 const Cart = () => {
@@ -265,12 +269,17 @@ const Cart = () => {
                       </button>
                     </div>
                     {error && (
-                      <p className="text-red-500 text-sm font-bold ml-4 mt-8">
+                      <p className="text-red-500 text-sm font-bold ml-4 mt-8 hidden lg:block">
                         {error}
                       </p>
                     )}
                   </div>
                 </form>
+                {error && (
+                  <p className="text-red-500 text-sm font-bold ml-4 mt-10 lg:hidden">
+                    {error}
+                  </p>
+                )}
               </div>
             </div>
           </div>
@@ -333,7 +342,12 @@ const Cart = () => {
                 className="text-3xl text-gray-300 hover:text-orange-600"
                 onClick={closeLoginPage}
               >
-                <FontAwesomeIcon icon={faChevronLeft} />
+                <span className="hidden lg:block">
+                  <FontAwesomeIcon icon={faChevronLeft} />
+                </span>
+                <span className="lg:hidden">
+                  <FontAwesomeIcon icon={faXmark} />
+                </span>
               </button>
               <Login />
             </div>
