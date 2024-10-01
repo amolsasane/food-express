@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Contact = () => {
   return (
-    <div className="pt-[5rem] flex flex-col lg:flex-row justify-center lg:justify-around mx-4 lg:mx-[5rem]">
+    <div className="pt-[5rem] flex flex-col lg:flex-row justify-center lg:justify-around mx-4 lg:mx-[10rem]">
       <div className="mt-[3rem] lg:mt-[6rem] w-full lg:w-[50%] slide-left text-center lg:text-left flex flex-col items-center lg:items-start">
         <h3 className="text-xs font-bold text-orange-600 w-fit bg-orange-200 px-3 py-1 rounded-full">
           Bike Delivery
@@ -44,7 +44,7 @@ const Contact = () => {
         <img
           alt="fastfood"
           src={fastfood}
-          className="w-[20rem] lg:h-[35rem] lg:w-[40rem] mt-8 slide-right"
+          className="w-[20rem] lg:w-[40rem] lg:h-[35rem] mt-8 slide-right"
         />
       </div>
     </div>
