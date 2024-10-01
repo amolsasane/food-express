@@ -46,7 +46,7 @@ function Header() {
         </div>
 
         <nav>
-          <ul className="flex p-4 space-x-4 sm:space-x-8 md:space-x-12 text-sm md:text-[1rem]">
+          <ul className="flex p-4 space-x-4 sm:space-x-8 lg:space-x-12 text-sm md:text-[1rem]">
             <li className="p-2 font-bold text-orange-600">
               <NavLink
                 to="/"
