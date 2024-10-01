@@ -118,14 +118,14 @@ const Cart = () => {
 
   return (
     <div className="pt-[5rem]">
-      <div className="flex mx-20 m-auto justify-around p-4 slide-right">
-        <div className="w-[60%] mt-4 slide-left">
+      <div className="flex lg:mx-20 m-auto flex-col-reverse lg:flex-row lg:justify-around justify-center p-4 slide-right">
+        <div className="lg:w-[60%] lg:mt-4 mt-16 lg:mb-0 mb-10 slide-left">
           {/* Account Information */}
           <div className="flex items-center">
             <img
               alt="user"
               src="https://cdn-icons-png.flaticon.com/512/8792/8792047.png"
-              className="w-20 left-[5.5rem] absolute z-10"
+              className="lg:w-20 w-16 pl-2 lg:pl-0 lg:left-[5.5rem] absolute z-10"
             />
             <div className="border-t border-gray-300 shadow-xl shadow-gray-300 px-4 py-4 rounded-lg h-[10rem] w-full">
               <div className="ml-16 mt-2 mr-4">
@@ -175,7 +175,7 @@ const Cart = () => {
             <img
               alt="address"
               src="https://cdn-icons-png.flaticon.com/512/8568/8568340.png"
-              className="w-20 left-[5.5rem] absolute z-10 bg-white"
+              className="lg:w-20 w-16 pl-2 lg:pl-0 lg:left-[5.5rem] absolute z-10 bg-white"
             />
             <div className="border-t border-gray-300 shadow-xl shadow-gray-300 p-4 rounded-lg h-[11rem] w-full mt-6">
               <div className="ml-16 mr-4">
@@ -217,7 +217,7 @@ const Cart = () => {
             <img
               alt="payment"
               src="https://cdn-icons-png.flaticon.com/512/10308/10308445.png"
-              className="w-20 left-[5.5rem] absolute z-10 bg-white"
+              className="lg:w-20 w-16 pl-2 lg:pl-0 lg:left-[5.5rem] absolute z-10 bg-white"
             />
             <div className="border-t border-gray-300 shadow-xl shadow-gray-300 p-6 rounded-lg h-[11rem] w-full mt-6">
               <div className="ml-16 mr-4">
@@ -239,9 +239,9 @@ const Cart = () => {
                     />
                   </div>
                   <div className="flex justify-between">
-                    <div className="flex justify-start items-center">
+                    <div className="flex justify-start items-center mt-4">
                       <input
-                        className="bg-zinc-200 p-2 border rounded-md shadow-inner shadow-gray-400 mt-4 w-[8.5rem] mr-4"
+                        className="bg-zinc-200 p-2 border rounded-md shadow-inner shadow-gray-400 w-[8.5rem] mr-4"
                         type="number"
                         name="amount"
                         value={Number(toPay).toFixed(2)}
@@ -250,16 +250,18 @@ const Cart = () => {
                       />
                       <button
                         type="submit"
-                        className="px-6 py-2 mt-4 mr-4 shadow-md shadow-gray-400 border border-gray-400 hover:shadow-gray-600 rounded-md hover:bg-black text-gray-600 hover:text-white font-bold"
+                        className="px-4 py-2 mr-4 shadow-md shadow-gray-400 border border-gray-400 hover:shadow-gray-600 rounded-md hover:bg-black text-gray-600 hover:text-white font-bold"
                       >
-                        Pay Now
+                        <span className="block lg:hidden">Pay</span>
+                        <span className="hidden lg:block">Pay Now</span>
                       </button>
                       <button
-                        className="p-2 mt-4 shadow-md shadow-gray-400 hover:shadow-gray-600 border border-gray-400 font-bold text-gray-600 rounded-md"
+                        className="px-4 py-2 shadow-md shadow-gray-400 hover:shadow-gray-600 border border-gray-400 font-bold text-gray-600 rounded-md"
                         type="button"
                         onClick={clearCartHandler}
                       >
-                        Clear Cart
+                        <span className="block lg:hidden">Clear</span>
+                        <span className="hidden lg:block">Clear Cart</span>
                       </button>
                     </div>
                     {error && (
@@ -275,7 +277,7 @@ const Cart = () => {
         </div>
 
         {/* Cart Items */}
-        <div className="w-[30%] rounded-md shadow-xl shadow-gray-300 mt-4 h-fit slide-down">
+        <div className="lg:w-[30%] rounded-md shadow-xl shadow-gray-300 mt-4 h-fit slide-down">
           <div className="max-h-[300px] overflow-y-auto">
             <MenuItemList items={cartItems} />
           </div>
