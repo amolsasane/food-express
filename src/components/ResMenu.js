@@ -16,6 +16,7 @@ import { useSelector } from "react-redux";
 
 const ResMenu = () => {
   const [showIndex, setShowIndex] = useState(0);
+  const [isBestSellerActive, setisBestSellerActive] = useState(false);
   const [showVeg, setShowVeg] = useState(false);
   const [showNonVeg, setShowNonVeg] = useState(false);
   const [showBestseller, setShowBestseller] = useState(false);
@@ -61,7 +62,8 @@ const ResMenu = () => {
 
   //filter bestseller items
   const filterBestseller = () => {
-    setShowBestseller(true);
+    setisBestSellerActive(!isBestSellerActive);
+    setShowBestseller(!showBestseller);
     setShowVeg(false);
     setShowNonVeg(false);
   };
@@ -159,7 +161,9 @@ const ResMenu = () => {
         </button>
 
         <button
-          className="slide-right ml-4 rounded-full my-2 border-2 border-gray-300 py-3 px-4 font-bold text-gray-500 hover:shadow-lg hover:shadow-gray-400"
+          className={`slide-right ml-4 rounded-full my-2 border-2 border-gray-300 py-3 px-4 font-bold text-gray-500 hover:shadow-lg hover:shadow-gray-400 ${
+            isBestSellerActive === true ? "bg-gray-200" : "bg-white"
+          }`}
           onClick={filterBestseller}
         >
           Bestseller
