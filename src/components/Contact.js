@@ -5,15 +5,15 @@ import { Link } from "react-router-dom";
 
 const Contact = () => {
   return (
-    <div className="pt-[5rem] flex justify-around mx-[5rem]">
-      <div className="mt-[6rem] ml-[4rem] w-[50%] slide-left">
+    <div className="pt-[5rem] flex flex-col lg:flex-row justify-center lg:justify-around mx-4 lg:mx-[5rem]">
+      <div className="mt-[3rem] lg:mt-[6rem] w-full lg:w-[50%] slide-left text-center lg:text-left flex flex-col items-center lg:items-start">
         <h3 className="text-xs font-bold text-orange-600 w-fit bg-orange-200 px-3 py-1 rounded-full">
           Bike Delivery
           <span className="ml-1 text-orange-800">
             <FontAwesomeIcon icon={faMotorcycle} />
           </span>
         </h3>
-        <h1 className="text-[3rem] my-4 font-semibold bounce-down">
+        <h1 className="text-[2rem] lg:text-[3rem] my-4 font-semibold bounce-down">
           We offer the{" "}
           <span className="text-orange-500 saturate-200">
             Fastest Food Delivery
@@ -27,22 +27,24 @@ const Contact = () => {
           special meal, we’re here to make every order fast, easy, and delicious
           😋
         </p>
-        <Link to="/">
-          <button className="shadow-md shadow-gray-500 px-4 py-2 font-bold text-white bg-black rounded-full text-sm mr-4 transform transition-transform duration-500 ease-in-out hover:scale-90">
-            Order Now
-          </button>
-        </Link>
-        <Link to="/">
-          <button className="shadow-md shadow-gray-400 px-4 py-2 font-bold text-white bg-orange-500 saturate-200 rounded-full text-sm transform transition-transform duration-500 ease-in-out hover:scale-90">
-            All foods <FontAwesomeIcon icon={faArrowRight} className="ml-1" />
-          </button>
-        </Link>
+        <div className="flex flex-row justify-center lg:justify-start">
+          <Link to="/">
+            <button className="shadow-md mr-4 shadow-gray-500 px-4 py-2 font-bold text-white bg-black rounded-full text-sm mb-4 sm:mb-0 transform transition-transform duration-500 ease-in-out hover:scale-90">
+              Order Now
+            </button>
+          </Link>
+          <Link to="/">
+            <button className="shadow-md shadow-gray-400 px-4 py-2 font-bold text-white bg-orange-500 saturate-200 rounded-full text-sm transform transition-transform duration-500 ease-in-out hover:scale-90">
+              All foods <FontAwesomeIcon icon={faArrowRight} className="ml-1" />
+            </button>
+          </Link>
+        </div>
       </div>
-      <div className="mx-[5rem] content-center">
+      <div className="flex justify-center lg:mx-[5rem] content-center">
         <img
           alt="fastfood"
           src={fastfood}
-          className="w-[40rem] mt-8 slide-right"
+          className="w-[20rem] lg:h-[35rem] lg:w-[40rem] mt-8 slide-right"
         />
       </div>
     </div>
