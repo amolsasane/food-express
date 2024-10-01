@@ -67,7 +67,7 @@ const ResMenu = () => {
   };
 
   return (
-    <div className="res-menu max-w-[50rem] m-auto slide-down pt-[4rem] mx-4 md:mx-auto">
+    <div className="res-menu max-w-[50rem] m-auto slide-down pt-[4rem] mx-4 lg:mx-auto">
       <h1 className="font-bold text-2xl md:text-3xl pt-4 ml-4 text-start mt-[2rem] bounce-down">
         {name}
       </h1>
