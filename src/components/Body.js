@@ -423,7 +423,7 @@ function Body() {
               </button>
 
               <button
-                className={`hidden md:inline py-2 px-4 mx-4 rounded-full font-bold m-2 border-gray-400 border text-gray-500 hover:shadow-md hover:shadow-gray-500 ${
+                className={`hidden lg:inline py-2 px-4 mx-4 rounded-full font-bold m-2 border-gray-400 border text-gray-500 hover:shadow-md hover:shadow-gray-500 ${
                   isTopRatedActive ? "bg-gray-200" : "bg-white"
                 } `}
                 onClick={filterTopRated}
@@ -432,7 +432,7 @@ function Body() {
               </button>
 
               <button
-                className={`hidden md:inline py-2 px-4 mx-4 rounded-full font-bold m-2 border-gray-400 border text-gray-500 hover:shadow-md hover:shadow-gray-500  ${
+                className={`hidden lg:inline py-2 px-4 mx-4 rounded-full font-bold m-2 border-gray-400 border text-gray-500 hover:shadow-md hover:shadow-gray-500  ${
                   isFastDeliveryActive ? "bg-gray-200" : "bg-white"
                 }`}
                 onClick={filterFastDelivery}
@@ -440,7 +440,7 @@ function Body() {
                 Fast Delivery
               </button>
               <button
-                className={`hidden md:inline py-2 px-4 mx-4 rounded-full font-bold m-2 border-gray-400 border text-gray-500 hover:shadow-md hover:shadow-gray-500  ${
+                className={`hidden lg:inline py-2 px-4 mx-4 rounded-full font-bold m-2 border-gray-400 border text-gray-500 hover:shadow-md hover:shadow-gray-500  ${
                   isLessCostActive ? "bg-gray-200" : "bg-white"
                 }`}
                 onClick={filterLessCost}
