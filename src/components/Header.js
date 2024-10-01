@@ -83,7 +83,7 @@ function Header() {
               >
                 <div className="flex flex-col items-center md:flex-row">
                   <FontAwesomeIcon icon={faHeart} />
-                  <span className="pl-2 hover:text-orange-600">About Us</span>
+                  <span className="pl-2 hover:text-orange-600">About</span>
                 </div>
               </NavLink>
             </li>
