@@ -219,7 +219,7 @@ const ResMenu = () => {
         <div
           className={`toaster ${
             isVisible ? "toaster-enter" : "toaster-exit"
-          } rounded-t-xl md:w-[50rem] w-[90vw]`}
+          } rounded-t-xl lg:w-[50rem] w-[90vw]`}
         >
           <h1>
             {cartItems.length} {cartItems.length > 1 ? "items" : "item"} added
