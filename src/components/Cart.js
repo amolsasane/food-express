@@ -322,7 +322,7 @@ const Cart = () => {
         <>
           <div className="fixed inset-0 bg-black opacity-50 z-10"></div>
           <div
-            className={`mt-[10vh] login-page fixed z-10 border border-gray-500 shadow-2xl bg-white w-[40vw] right-0 top-0 h-[90vh] rounded-l-xl transition-transform ${
+            className={`mt-[10vh] login-page fixed z-10 border border-gray-500 shadow-2xl bg-white lg:w-[40vw] w-[100vw] right-0 top-0 h-[90vh] rounded-l-xl transition-transform ${
               showLoginPage ? "animate-slideInRight" : "animate-slideOutRight"
             }`}
           >
