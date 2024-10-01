@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Offers = () => {
   return (
     <div className="pt-[5rem] flex items-center overflow-hidden md:flex-row flex-col lg:justify-around md:justify-between">
-      <div className="mt-4 md:ml-8 lg:ml-[5rem] slide-down md:slide-left px-8">
+      <div className="mt-4 md:ml-8 lg:ml-[5rem] px-8 slide-left">
         <h1 className="md:text-[3rem] text-[2rem] font-semibold text-orange-500 saturate-200 bounce-down text-center md:text-left">
           Hungry for Deals?
         </h1>
@@ -46,7 +46,7 @@ const Offers = () => {
           </Link>
         </div>
       </div>
-      <div className="flex items-center md:mb-[1rem] mt-[2rem] lg:-mr-[15rem] md:-mr-[25rem] -mr-0 -mb-[10rem] md:relative slide-up md:slide-right">
+      <div className="flex items-center md:mb-[1rem] mt-[2rem] lg:-mr-[15rem] md:-mr-[25rem] -mr-0 -mb-[10rem] md:relative  slide-right">
         <img
           alt="foodplate"
           src={foodplate}
