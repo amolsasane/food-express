@@ -172,18 +172,19 @@ const ResMenu = () => {
 
       <div className="h-[1px] bg-gray-300 w-full"></div>
 
-      {catagories.map((catagory, index) => (
-        <MenuCatagory
-          key={catagory.card.card.title}
-          data={catagory.card.card}
-          showItems={index === showIndex ? true : false}
-          setShowIndex={() => setShowIndex(index)}
-          showVeg={showVeg}
-          showNonVeg={showNonVeg}
-          showBestseller={showBestseller}
-          className="slide-up"
-        />
-      ))}
+      {catagories &&
+        catagories.map((catagory, index) => (
+          <MenuCatagory
+            key={catagory.card.card.title}
+            data={catagory.card.card}
+            showItems={index === showIndex ? true : false}
+            setShowIndex={() => setShowIndex(index)}
+            showVeg={showVeg}
+            showNonVeg={showNonVeg}
+            showBestseller={showBestseller}
+            className="slide-up"
+          />
+        ))}
 
       <div className="bg-gray-200 mt-6">
         <div className="flex items-center mx-4">
