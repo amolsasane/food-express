@@ -9,7 +9,7 @@ const Error = () => {
       <img alt="error" src={errorImg} className="w-[20rem] md:w-[30rem]" />
       <h1 className="text-red-500 font-bold text-center">Oops..</h1>
       <h2 className="text-gray-500 font-semibold text-center">
-        Something went wrong, please reload!
+        Something went wrong, please refresh the page!
       </h2>
       <h3 className="text-sm text-gray-500 text-center">
         {err.status}: {err.statusText}
