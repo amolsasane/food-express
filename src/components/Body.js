@@ -37,6 +37,7 @@ function Body() {
   const [searchedRestaurents, setSearchedRestaurents] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [serverError, setServerError] = useState("");
   const [heading, setHeading] = useState("");
   const [showVeg, setShowVeg] = useState(false);
   const [showNonVeg, setShowNonVeg] = useState(false);
@@ -73,7 +74,7 @@ function Body() {
           setDataFetched(true);
         }
       } catch (error) {
-        setErrorMessage("Error fetching data!");
+        setServerError("Oops! We Hit a Snag! 🚧");
       }
     };
 
@@ -275,7 +276,42 @@ function Body() {
     setSearchedRestaurents(filteredRestaurent);
   };
 
-  return restaurantsList.length === 0 ? (
+  return serverError ? (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <div className="error-container p-6 bg-white rounded-lg shadow-xl shadow-gray-400 text-center bounce-down">
+        <h1 className="font-bold text-red-600 text-2xl mb-4">{serverError}</h1>
+        <h2 className="font-semibold text-gray-800 mb-2">
+          It looks like we encountered a{" "}
+          <span className="font-bold text-red-500">CORS error</span>, which is
+          blocking our access to certain resources. But don't worry; we can fix
+          this together!
+        </h2>
+        <h2 className="font-semibold text-gray-800 mb-4">
+          ✨ Let’s get you back on track:
+        </h2>
+        <h3 className="mb-2">
+          1. 🌐 Click the magic link below to grab a helpful extension that will
+          wave goodbye to those pesky CORS errors!
+        </h3>
+        <a
+          href="https://chromewebstore.google.com/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=en"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-blue-600 w-fit font-semibold text-white py-2 px-4 rounded hover:bg-blue-500 transition duration-200 block my-6 mx-auto"
+        >
+          Download CORS Extension
+        </a>
+        <h3 className="mb-2">
+          2. 🔄 Refresh the page once you’ve got and enabled the extension.
+        </h3>
+        <p className="text-gray-600 my-4">
+          Your adventure shouldn’t be interrupted by technical hiccups! Thank
+          you for your understanding, and if you have any questions or need
+          assistance, feel free to reach out!
+        </p>
+      </div>
+    </div>
+  ) : restaurantsList.length === 0 ? (
     <div className="shimmer-container pt-[4rem] md:pt-[6rem]">
       <Shimmer />
     </div>
