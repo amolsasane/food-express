@@ -1,7 +1,7 @@
 {
-  "name": "namaste-react",
+  "name": "food-express",
   "version": "1.0.0",
-  "description": "Namaste React Bootcamp",
+  "description": "Online food ordering app",
   "scripts": {
     "start": "parcel public/index.html",
     "build": "parcel build public/index.html",
