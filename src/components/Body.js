@@ -449,7 +449,7 @@ function Body() {
                 </div>
               </button>
 
-              <button className="mx-4 rounded-full my-2">
+              <button className="mx-4 rounded-full my-2 hidden lg:inline">
                 <div className="toggle-border-main-nonveg">
                   <input
                     id="two"
