@@ -290,7 +290,7 @@ function Body() {
           ✨ Let’s get you back on track:
         </h2>
         <h3 className="mb-2">
-          1. 🌐 Click the magic link below to grab a helpful extension that will
+          1. 🌐 Click the magic link below to add a helpful extension that will
           wave goodbye to those pesky CORS errors!
         </h3>
         <a
@@ -299,15 +299,23 @@ function Body() {
           rel="noopener noreferrer"
           className="bg-blue-600 w-fit font-semibold text-white py-2 px-4 rounded hover:bg-blue-500 transition duration-200 block my-6 mx-auto"
         >
-          Download CORS Extension
+          Add CORS Extension
         </a>
         <h3 className="mb-2">
           2. 🔄 Refresh the page once you’ve got and enabled the extension.
         </h3>
         <p className="text-gray-600 my-4">
           Your adventure shouldn’t be interrupted by technical hiccups! Thank
-          you for your understanding, and if you have any questions or need
-          assistance, feel free to reach out!
+          you for your understanding. Please refer to this{" "}
+          <a
+            className="text-blue-600 font-bold underline hover:underline-offset-2"
+            href="https://www.youtube.com/watch?v=KruSUqLdxQA&t=44s"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            video guide
+          </a>{" "}
+          for instructions on how to enable the CORS Extension.
         </p>
       </div>
     </div>
