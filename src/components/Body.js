@@ -280,16 +280,14 @@ function Body() {
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
       <div className="error-container p-6 bg-white rounded-lg shadow-xl shadow-gray-400 text-center bounce-down">
         <h1 className="font-bold text-red-600 text-2xl mb-4">{serverError}</h1>
-        <h2 className="font-semibold text-gray-800 mb-2">
+        <h2 className=" text-gray-800 mb-2">
           It looks like we encountered a{" "}
           <span className="font-bold text-red-500">CORS error</span>, which is
           blocking our access to certain resources. But don't worry; we can fix
           this together!
         </h2>
-        <h2 className="font-semibold text-gray-800 mb-4">
-          ✨ Let’s get you back on track:
-        </h2>
-        <h3 className="mb-2">
+        <h2 className="font-bold mb-4">Let’s get you back on track :</h2>
+        <h3 className="mb-2 font-semibold">
           1. 🌐 Click the magic link below to add a helpful extension that will
           wave goodbye to those pesky CORS errors!
         </h3>
@@ -301,7 +299,7 @@ function Body() {
         >
           Add CORS Extension
         </a>
-        <h3 className="mb-2">
+        <h3 className="mb-2 font-semibold">
           2. 🔄 Refresh the page once you’ve got and enabled the extension.
         </h3>
         <p className="text-gray-600 my-4">
