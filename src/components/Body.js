@@ -141,6 +141,8 @@ function Body() {
 
     if (topRatedRes.length === 0) {
       setErrorMessage("No restaurants found!");
+    } else if (isTopRatedActive === false) {
+      setErrorMessage("");
     } else {
       setErrorMessage("");
     }
@@ -162,6 +164,8 @@ function Body() {
 
     if (fastDelRes.length === 0) {
       setErrorMessage("No restaurants found!");
+    } else if (isFastDeliveryActive === false) {
+      setErrorMessage("");
     } else {
       setErrorMessage("");
     }
@@ -182,6 +186,8 @@ function Body() {
 
     if (lesscostRes.length === 0) {
       setErrorMessage("No restaurants found!");
+    } else if (isLessCostActive === false) {
+      setErrorMessage("");
     } else {
       setErrorMessage("");
     }
