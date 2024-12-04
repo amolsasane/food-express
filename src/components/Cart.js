@@ -102,8 +102,8 @@ const Cart = () => {
       <div className="flex flex-col items-center justify-center p-4 pt-[12rem] md:pt-[7rem]">
         <img
           alt="empty-cart"
-          src="https://zoe.menu/assets/images/empty_cart.gif"
-          className="w-[20rem] md:w-[27rem] bounce-down"
+          src="https://cdn.dribbble.com/users/887568/screenshots/3172047/media/35159a4a9ba57200e5e17119ffd945e6.gif"
+          className="w-[24rem] md:w-[36rem] bounce-down"
         />
         <div className="flex -mt-6">
           <Link to="/">
