@@ -117,7 +117,7 @@ const Footer = () => {
               <div>
                 <h3 className="text-white font-bold uppercase">Projects</h3>
                 <a
-                  href="https://cineflixgpt.netlify.app/"
+                  href="https://cineflixgptmovies.netlify.app"
                   className="block mt-2 text-sm hover:text-white hover:underline"
                   target="_blank"
                   rel="noreferrer"
