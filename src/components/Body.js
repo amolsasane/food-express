@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import ResCard, { WithLabel } from "./ResCard.js";
 import Shimmer from "./Shimmer.js";
-import { SWIGGY_API, EDUCORS_URL } from "../utils/constants.js";
+import { SWIGGY_API } from "../utils/constants.js";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus.js";
 import Login from "./Login.js";
@@ -63,11 +63,7 @@ function Body() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await fetch(
-          `${EDUCORS_URL}?ApiKey=${
-            process.env.REACT_APP_EDUCORS_API_KEY
-          }&Target=${encodeURIComponent(SWIGGY_API)}`
-        );
+        const data = await fetch(SWIGGY_API);
         const result = await data.json();
         const restaurants =
           result?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
