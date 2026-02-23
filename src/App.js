@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header.js";
 import Body from "./components/Body.js";
-import Contact from "./components/Contact.js";
+import About from "./components/About.js";
 import Offers from "./components/Offers.js";
 import Cart from "./components/Cart.js";
 import Error from "./components/Error.js";
@@ -41,8 +41,8 @@ const appRouter = createBrowserRouter([
         element: <Offers />,
       },
       {
-        path: "/contact",
-        element: <Contact />,
+        path: "/about",
+        element: <About />,
       },
       {
         path: "/restaurant/:ResId",

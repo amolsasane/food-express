@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faMotorcycle } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
-const Contact = () => {
+const About = () => {
   return (
     <div className="pt-[5rem] flex flex-col lg:flex-row justify-center lg:justify-around mx-4 lg:mx-[10rem]">
       <div className="mt-[3rem] lg:mt-[6rem] w-full lg:w-[50%] slide-left text-center lg:text-left flex flex-col items-center lg:items-start">
@@ -51,4 +51,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default About;

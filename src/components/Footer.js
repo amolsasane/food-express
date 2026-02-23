@@ -163,7 +163,7 @@ const Footer = () => {
               </div>
 
               <div>
-                <h3 className="text-white font-bold uppercase">Contact</h3>
+                <h3 className="text-white font-bold uppercase">About</h3>
                 <span className="block mt-2 text-sm hover:text-white">
                   +917249498769
                 </span>

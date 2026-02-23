@@ -76,7 +76,7 @@ function Header() {
             {/* Removed About Us for small devices */}
             <li className="p-2 font-bold text-orange-600 hidden md:block">
               <NavLink
-                to="/contact"
+                to="/about"
                 className={({ isActive }) =>
                   isActive ? "text-orange-600" : "text-gray-600"
                 }
