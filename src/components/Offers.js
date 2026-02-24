@@ -30,7 +30,7 @@ const Offers = () => {
           </div>
         </div>
         <p className="text-gray-500 font-bold text-sm mb-4 max-w-[35rem] text-center md:text-left">
-          !0% off on your first order and free delivery on orders above 250/-,
+          10% off on your first order and free delivery on orders above 250/-,
           so unlock your tastebuds now!
         </p>
         <div className="flex justify-center md:justify-start">
