@@ -1,3 +1,6 @@
+src/utils/constants.js/
+RES_MENU_API => NOT WORKING (GETTING EMPTY IN RESPONSE)
+
 # FoodExpress 🍕
 
 Welcome to **FoodExpress**, a highly scalable and performant food ordering app powered by the real-time Swiggy API. This application features fast loading times, optimized menu browsing, and a beautifully animated user interface, making food ordering quick and enjoyable!
