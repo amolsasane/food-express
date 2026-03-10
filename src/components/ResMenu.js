@@ -37,13 +37,13 @@ const ResMenu = () => {
     areaName,
     sla,
     locality,
-  } = resInfo?.cards[2]?.card?.card?.info;
+  } = resInfo?.cards[0]?.card?.card?.info;
 
   const catagories =
-    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR.cards.filter(
+    resInfo?.cards[1]?.groupedCard?.cardGroupMap?.REGULAR.cards.filter(
       (c) =>
         c.card?.card?.["@type"] ===
-        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory",
     );
 
   // Toggle veg items

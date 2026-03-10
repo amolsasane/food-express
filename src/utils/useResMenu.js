@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { RES_MENU_API } from "./constants";
-import { PROXY_URL } from "./constants";
+import { mockResMenu } from "./mockData";
 
 const useResMenu = (ResId) => {
   const [resInfo, setResInfo] = useState(null);
@@ -8,13 +7,11 @@ const useResMenu = (ResId) => {
   useEffect(() => {
     if (!ResId) return;
 
-    const fetchData = async () => {
-      const data = await fetch(PROXY_URL + RES_MENU_API + ResId);
-      const json = await data.json();
-      setResInfo(json.data);
-    };
+    const timer = setTimeout(() => {
+      setResInfo(mockResMenu[ResId]?.data);
+    }, 1000);
 
-    fetchData();
+    return () => clearTimeout(timer);
   }, [ResId]);
 
   return resInfo;

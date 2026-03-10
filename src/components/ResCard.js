@@ -25,7 +25,7 @@ function ResCard(props) {
         </p>
         <p className="font-bold">{sla.slaString}</p>
       </div>
-      <p className="ml-2 truncate">{cuisines.join(", ")}</p>
+      <p className="ml-2 truncate">{cuisines?.join(", ")}</p>
       <p className="ml-2">{locality}</p>
     </div>
   );

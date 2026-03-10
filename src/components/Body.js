@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
+import { mockRestaurants } from "../utils/mockData.js";
 import ResCard, { WithLabel } from "./ResCard.js";
 import Shimmer from "./Shimmer.js";
-import { SWIGGY_API, PROXY_URL } from "../utils/constants.js";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus.js";
 import Login from "./Login.js";
@@ -41,7 +41,6 @@ function Body() {
   const [heading, setHeading] = useState("");
   const [showVeg, setShowVeg] = useState(false);
   const [showNonVeg, setShowNonVeg] = useState(false);
-  const [dataFetched, setDataFetched] = useState(false);
   const [isTopRatedActive, setIsTopRatedActive] = useState(false);
   const [isFastDeliveryActive, setIsFastDeliveryActive] = useState(false);
   const [isLessCostActive, setIsLessCostActive] = useState(false);
@@ -61,27 +60,23 @@ function Body() {
   }, [errorMessage]);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const timer = setTimeout(() => {
       try {
-        const data = await fetch(PROXY_URL + SWIGGY_API);
-        const result = await data.json();
         const restaurants =
-          result?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-            ?.restaurants;
+          mockRestaurants?.data?.cards[0]?.card?.card?.gridElements
+            ?.infoWithStyle?.restaurants;
+
         if (restaurants) {
           setRestaurantsList(restaurants);
           setSearchedRestaurents(restaurants);
-          setDataFetched(true);
         }
       } catch (error) {
-        setServerError("Oops! We Hit a Snag! 🚧");
+        setServerError("Failed to load mock restaurant data");
       }
-    };
+    }, 1000);
 
-    if (!dataFetched) {
-      fetchData();
-    }
-  }, [dataFetched]);
+    return () => clearTimeout(timer);
+  }, []);
 
   const onlineStatus = useOnlineStatus();
   if (onlineStatus === false) return <h1>Oh.. You are offline!</h1>;
@@ -128,7 +123,7 @@ function Body() {
 
   const filterTopRated = () => {
     const topRatedRes = restaurantsList.filter(
-      (res) => res.info.avgRating > 4.2
+      (res) => res.info.avgRating > 4.2,
     );
 
     setIsTopRatedActive(!isTopRatedActive);
@@ -150,7 +145,7 @@ function Body() {
 
   const filterFastDelivery = () => {
     const fastDelRes = restaurantsList.filter(
-      (res) => res.info.avgRating > 4.5
+      (res) => res.info.avgRating > 4.5,
     );
 
     setIsTopRatedActive(false);
@@ -173,7 +168,7 @@ function Body() {
 
   const filterLessCost = () => {
     const lesscostRes = restaurantsList.filter(
-      (res) => res.info.avgRating > 4.6
+      (res) => res.info.avgRating > 4.6,
     );
     setIsTopRatedActive(false);
     setIsFastDeliveryActive(false);
@@ -199,9 +194,9 @@ function Body() {
     const filteredRestaurent = restaurantsList.filter(
       (res) =>
         res.info.name.toLowerCase().includes(searchInput.toLowerCase()) ||
-        res.info.cuisines.some((cuisine) =>
-          cuisine.toLowerCase().includes(searchInput.toLowerCase())
-        )
+        res.info.cuisines?.some((cuisine) =>
+          cuisine.toLowerCase().includes(searchInput.toLowerCase()),
+        ),
     );
 
     filteredRestaurent.length === 0
@@ -267,8 +262,8 @@ function Body() {
       (res) =>
         res.info.name.toLowerCase().includes(altText.toLowerCase()) ||
         res.info.cuisines.some((cuisine) =>
-          cuisine.toLowerCase().includes(altText.toLowerCase())
-        )
+          cuisine.toLowerCase().includes(altText.toLowerCase()),
+        ),
     );
 
     if (filteredRestaurent.length === 0) {
@@ -444,7 +439,7 @@ function Body() {
                     checked={showVeg}
                     onClick={toggleVeg}
                   />
-                  <label for="one">
+                  <label htmlFor="one">
                     <div className="handle-main-veg flex justify-center items-center">
                       <FontAwesomeIcon
                         icon={faCircle}
@@ -463,7 +458,7 @@ function Body() {
                     checked={showNonVeg}
                     onClick={toggleNonVeg}
                   />
-                  <label for="two">
+                  <label htmlFor="two">
                     <div className="handle-main-nonveg flex justify-center place-items-center">
                       <span className=" text-red-600 text-2xl -mt-1">▲</span>
                     </div>

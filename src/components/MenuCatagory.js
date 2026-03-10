@@ -1,6 +1,6 @@
 import MenuItemList from "./MenuItemList";
 
-const Catagory = ({
+const MenuCatagory = ({
   data,
   showItems,
   setShowIndex,
@@ -10,15 +10,17 @@ const Catagory = ({
 }) => {
   const filteredMenu = showVeg
     ? data.itemCards.filter(
-        (item) => item.card?.info?.itemAttribute?.vegClassifier === "VEG"
+        (item) => item.card?.info?.itemAttribute?.vegClassifier === "VEG",
       )
     : showNonVeg
-    ? data.itemCards.filter(
-        (item) => item.card?.info?.itemAttribute?.vegClassifier === "NONVEG"
-      )
-    : showBestseller
-    ? data.itemCards.filter((item) => item.card?.info?.isBestseller === true)
-    : data.itemCards;
+      ? data.itemCards.filter(
+          (item) => item.card?.info?.itemAttribute?.vegClassifier === "NONVEG",
+        )
+      : showBestseller
+        ? data.itemCards.filter(
+            (item) => item.card?.info?.isBestseller === true,
+          )
+        : data.itemCards;
 
   if (filteredMenu.length === 0) {
     return null;
@@ -40,4 +42,4 @@ const Catagory = ({
   );
 };
 
-export default Catagory;
+export default MenuCatagory;

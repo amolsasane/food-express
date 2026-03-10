@@ -1,17 +1,12 @@
 export const RES_LOGO_LINK =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 
-export const RES_MENU_API =
-  "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5744018&lng=73.818406&restaurantId=";
-
-export const SWIGGY_API =
-  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5744018&lng=73.818406&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
-
 export const MENU_ITEM_API =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
 
 export const CAKE_LINK =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/8f508de7-e0ac-4ba8-b54d-def9db98959e_cake.png";
+
 export const ROLLS_LINK =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/17/58760e8e-324f-479e-88fa-31800120ea38_Rolls1.png";
 
@@ -44,5 +39,3 @@ export const RASGULLA_LINK =
 
 export const BURGER_LINK =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/8f508de7-e0ac-4ba8-b54d-def9db98959e_burger.png";
-
-export const PROXY_URL = "https://proxy.corsfix.com/?";
