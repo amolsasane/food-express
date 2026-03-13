@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import UserContext from "../utils/UserContext";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,6 +17,8 @@ function Header() {
   const { loggedInUser, setLoggedInUser } = useContext(UserContext);
   const turnLoginBtn = useSelector((store) => store.login.logInBtn);
   const cartItems = useSelector((store) => store.cart.items);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const [bounce, setBounce] = useState(false);
 
@@ -34,15 +36,24 @@ function Header() {
     }
   }, [cartItems.length]);
 
+  const handleLogoClick = () => {
+    if (location.pathname === "/") {
+      window.location.reload();
+    } else {
+      navigate("/");
+    }
+  };
+
   return (
     <div className="h-[10vh] fixed bg-white shadow-lg z-30 w-full slide-down">
       <div className="flex justify-between items-center max-w-[80rem] pl-4 m-auto">
-        <div className="img-container flex items-center">
-          <Link to="/">
-            <h1 className="logo font-bold text-2xl md:text-3xl text-orange-600 mb-2 md: md:mb-0">
-              food<span className="text-black">express</span>
-            </h1>
-          </Link>
+        <div className="flex items-center">
+          <h1
+            onClick={handleLogoClick}
+            className="cursor-pointer logo font-bold text-2xl transform transition-all duration-300 ease-in-out hover:scale-105 md:text-3xl text-orange-600 mb-2 md:mb-0"
+          >
+            food<span className="text-black">express</span>
+          </h1>
         </div>
 
         <nav>
