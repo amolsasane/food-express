@@ -82,7 +82,7 @@ const ResMenu = () => {
             {avgRating}
             <span className="mx-1">({totalRatingsString})</span>{" "}
             <span className="text-gray-400 mr-2">•</span>
-            <sapn>{costForTwoMessage}</sapn>
+            <span>{costForTwoMessage}</span>
           </p>
           <p className="mx-4 mt-2 text-sm font-bold text-orange-500">
             {cuisines.join(", ")}
