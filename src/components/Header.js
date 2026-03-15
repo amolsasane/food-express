@@ -26,6 +26,10 @@ function Header() {
     setLoggedInUser("Guest");
     dispatch(showLogin("Login"));
     dispatch(turnToLogin());
+
+    if (!(location.pathname === "/cart" && cartItems.length > 0)) {
+      navigate("/");
+    }
   };
 
   useEffect(() => {
