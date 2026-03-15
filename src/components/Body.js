@@ -129,7 +129,11 @@ function Body() {
     setIsTopRatedActive(!isTopRatedActive);
     setIsFastDeliveryActive(false);
     setIsLessCostActive(false);
+    setShowVeg(false);
+    setShowNonVeg(false);
     setSearchInput("");
+    setHeading("");
+
     isTopRatedActive
       ? setSearchedRestaurents(restaurantsList)
       : setSearchedRestaurents(topRatedRes);
@@ -151,7 +155,10 @@ function Body() {
     setIsTopRatedActive(false);
     setIsFastDeliveryActive(!isFastDeliveryActive);
     setIsLessCostActive(false);
+    setShowVeg(false);
+    setShowNonVeg(false);
     setSearchInput("");
+    setHeading("");
 
     isFastDeliveryActive
       ? setSearchedRestaurents(restaurantsList)
@@ -173,16 +180,17 @@ function Body() {
     setIsTopRatedActive(false);
     setIsFastDeliveryActive(false);
     setIsLessCostActive(!isLessCostActive);
+    setShowVeg(false);
+    setShowNonVeg(false);
     setSearchInput("");
+    setHeading("");
 
     isLessCostActive
       ? setSearchedRestaurents(restaurantsList)
       : setSearchedRestaurents(lesscostRes);
 
-    if (lesscostRes.length === 0) {
+    if (!isLessCostActive && lesscostRes.length === 0) {
       setErrorMessage("No restaurants found!");
-    } else if (isLessCostActive === false) {
-      setErrorMessage("");
     } else {
       setErrorMessage("");
     }
@@ -275,6 +283,14 @@ function Body() {
     }
 
     setSearchedRestaurents(filteredRestaurent);
+
+    // reset filters
+    setIsTopRatedActive(false);
+    setIsFastDeliveryActive(false);
+    setIsLessCostActive(false);
+    setShowVeg(false);
+    setShowNonVeg(false);
+    setSearchInput("");
   };
 
   return serverError ? (
