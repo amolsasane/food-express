@@ -1,8 +1,26 @@
+/*
+===============================================================
+Constants: Image & Asset URLs
+ Purpose: Store reusable image URLs used across the application.
+
+ Implementation:
+  1. Restaurant and menu image base URLs.
+  2. Category banner images used on the homepage.
+
+ Returns:
+  - Named constants for easy import across components
+===============================================================
+*/
+
+// Base URLs for restaurant and menu images
+
 export const RES_LOGO_LINK =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 
 export const MENU_ITEM_API =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
+
+// Food Category Banner Images
 
 export const CAKE_LINK =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/8f508de7-e0ac-4ba8-b54d-def9db98959e_cake.png";

@@ -23,8 +23,8 @@ const ResMenu = () => {
   const isVisible = useSelector((store) => store.cart.ShowToaster);
   const cartItems = useSelector((store) => store.cart.items);
 
-  const { ResId } = useParams();
-  const resInfo = useResMenu(ResId);
+  const { resId } = useParams();
+  const resInfo = useResMenu(resId);
 
   if (resInfo === null) return <Loader />;
 
